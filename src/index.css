@@ -16,7 +16,6 @@
   box-sizing: border-box;
   outline: none;
   border: none;
-  text-transform: capitalize;
   text-decoration: none;
 }
 
@@ -29,10 +28,6 @@ html {
 
 section {
   padding: 2rem 9%;
-}
-
-section:nth-child(even) {
-  background: #f5f5f5;
 }
 
 .heading {

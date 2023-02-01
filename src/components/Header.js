@@ -24,18 +24,10 @@ const Header = () => {
                     {/* submenu mathi ko ma halnu xa */}
                     <a href="#blogs">blogs</a>
                     <a href="#book">Appointment</a>
-                    {/* <a href="#review">Reviews</a> */}
                     <a href="#contacts">Contact Us</a>
-
-                    <a href="#login" style={{
-                        // backgroundColor: "#16a085",
-
-
-                    }}> Login</a>
-
+                    <a href="#login"> Login</a>
                     <a href="#register"> Register</a>
 
-                    {/* login register button */}
                 </nav>
 
                 <div id="menu-btn"> <button onClick={() => {
@@ -67,11 +59,11 @@ const Header = () => {
                     <p><a href="#home" onClick={() => setShowModal(false)} >home</a></p>
                     <p><a href="#about" onClick={() => setShowModal(false)}>about</a></p>
                     <p><a href="#services" onClick={() => setShowModal(false)}>services </a></p>
-                    {/* <p><a href="#Departments" onClick={() => setShowModal(false)}>doctors</a></p> */}
                     <p><a href="#blogs" onClick={() => setShowModal(false)}>blogs</a></p>
                     <p><a href="#book" onClick={() => setShowModal(false)}>Appointment</a></p>
-                    {/* <p><a href="#review" onClick={() => setShowModal(false)}>Reviews</a></p> */}
                     <p><a href="#contacts" onClick={() => setShowModal(false)}>Contact Us</a></p>
+                    <p><a href="#login" onClick={() => setShowModal(false)}>Login</a></p>
+                    <p><a href="#register" onClick={() => setShowModal(false)}>Register</a></p>
 
                     {/* login register Butoton */}
                 </nav>

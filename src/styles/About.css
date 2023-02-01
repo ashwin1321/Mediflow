@@ -19,7 +19,6 @@
 
 .about .row .content h3 {
   color: var(--black);
-  /* text-shadow: var(--text-shadow); */
   font-size: 3rem;
   line-height: 1.8;
 }
@@ -33,5 +32,5 @@
 
 .about {
   padding-top: 10rem;
-  /* padding-bottom: 10rem; */
+  background: #f5f5f5;
 }
