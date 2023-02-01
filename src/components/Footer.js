@@ -31,7 +31,7 @@ const Footer = () => {
                     <div className="box">
                         <h3>contact info</h3>
                         < a href="#contacts" > <i className="fas fa-phone"></i> +977-123-456-7890 </a>
-                        < a href="#contacts" > <i className="fas fa-envelope"></i> contact@myhospital.coom </a>
+                        < a href="#contacts" > <i className="fas fa-envelope"></i> contact@myhospital.com </a>
                         < a href="#contacts" > <i className="fas fa-map-marker-alt"></i> Maitidevi-29, Kathmandu, Nepal</a>
                     </div>
 

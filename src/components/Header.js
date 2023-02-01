@@ -23,8 +23,8 @@ const Header = () => {
                     {/* <a href="#Departments">doctors</a> */}
                     {/* submenu mathi ko ma halnu xa */}
                     <a href="#blogs">blogs</a>
-                    <a href="#book">Appointment</a>
-                    <a href="#contacts">Contact Us</a>
+                    <a href="#book">appointment</a>
+                    <a href="#contacts">contact us</a>
                     <a href="#login"> Login</a>
                     <a href="#register"> Register</a>
 
@@ -60,8 +60,8 @@ const Header = () => {
                     <p><a href="#about" onClick={() => setShowModal(false)}>about</a></p>
                     <p><a href="#services" onClick={() => setShowModal(false)}>services </a></p>
                     <p><a href="#blogs" onClick={() => setShowModal(false)}>blogs</a></p>
-                    <p><a href="#book" onClick={() => setShowModal(false)}>Appointment</a></p>
-                    <p><a href="#contacts" onClick={() => setShowModal(false)}>Contact Us</a></p>
+                    <p><a href="#book" onClick={() => setShowModal(false)}>appointment</a></p>
+                    <p><a href="#contacts" onClick={() => setShowModal(false)}>contact us</a></p>
                     <p><a href="#login" onClick={() => setShowModal(false)}>Login</a></p>
                     <p><a href="#register" onClick={() => setShowModal(false)}>Register</a></p>
 
