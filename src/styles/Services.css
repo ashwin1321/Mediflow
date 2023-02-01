@@ -1,8 +1,9 @@
 .services .box-container {
-  margin-top: 10px;
+  margin-top: 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(37rem, 1fr));
   gap: 2rem;
+  /* background-color: red; */
 }
 
 .services .box-container .box {
@@ -27,6 +28,11 @@
 
 .services .box-container .box p {
   color: var(--light-color);
-  font-size: 1.4rem;
-  line-height: 1.4;
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+
+.services {
+  padding-top: 10rem;
+  /* padding-bottom: 10rem; */
 }

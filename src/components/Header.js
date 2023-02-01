@@ -14,18 +14,26 @@ const Header = () => {
         <div>
             <header className="header">
 
-                <a href="#" className="logo"><LocalHospitalIcon sx={{ fontSize: 25 }} style={{ color: "#16a085" }} /> My<span style={{ color: "#16a085" }}>Hospital</span></a>
+                <a href="#home" className="logo"><LocalHospitalIcon sx={{ fontSize: 25 }} style={{ color: "#16a085" }} /> My<span style={{ color: "#16a085" }}>Hospital</span></a>
 
                 <nav className="navbar">
                     <a href="#home">home</a>
                     <a href="#about">about</a>
                     <a href="#services">services</a>
-                    <a href="#Departments">doctors</a>
+                    {/* <a href="#Departments">doctors</a> */}
                     {/* submenu mathi ko ma halnu xa */}
-                    <a href="#book">Appointment</a>
                     <a href="#blogs">blogs</a>
-                    <a href="#review">Reviews</a>
-                    <a href="#contacts">Contacts</a>
+                    <a href="#book">Appointment</a>
+                    {/* <a href="#review">Reviews</a> */}
+                    <a href="#contacts">Contact Us</a>
+
+                    <a href="#login" style={{
+                        // backgroundColor: "#16a085",
+
+
+                    }}> Login</a>
+
+                    <a href="#register"> Register</a>
 
                     {/* login register button */}
                 </nav>
@@ -59,10 +67,10 @@ const Header = () => {
                     <p><a href="#home" onClick={() => setShowModal(false)} >home</a></p>
                     <p><a href="#about" onClick={() => setShowModal(false)}>about</a></p>
                     <p><a href="#services" onClick={() => setShowModal(false)}>services </a></p>
-                    <p><a href="#Departments" onClick={() => setShowModal(false)}>doctors</a></p>
-                    <p><a href="#book" onClick={() => setShowModal(false)}>Appointment</a></p>
+                    {/* <p><a href="#Departments" onClick={() => setShowModal(false)}>doctors</a></p> */}
                     <p><a href="#blogs" onClick={() => setShowModal(false)}>blogs</a></p>
-                    <p><a href="#review" onClick={() => setShowModal(false)}>Reviews</a></p>
+                    <p><a href="#book" onClick={() => setShowModal(false)}>Appointment</a></p>
+                    {/* <p><a href="#review" onClick={() => setShowModal(false)}>Reviews</a></p> */}
                     <p><a href="#contacts" onClick={() => setShowModal(false)}>Contact Us</a></p>
 
                     {/* login register Butoton */}
