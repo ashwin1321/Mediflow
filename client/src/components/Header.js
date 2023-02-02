@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import ViewWeekIcon from '@mui/icons-material/ViewWeek';
+import { Link } from 'react-router-dom';
 
 import { Modal } from 'antd'
 import '../styles/Header.css'
@@ -14,19 +15,19 @@ const Header = () => {
         <div>
             <header className="header">
 
-                <a href="#home" className="logo"><LocalHospitalIcon sx={{ fontSize: 25 }} style={{ color: "#16a085" }} /> My<span style={{ color: "#16a085" }}>Hospital</span></a>
+                <Link to="/" className="logo"><LocalHospitalIcon sx={{ fontSize: 25 }} style={{ color: "#16a085" }} /> My<span style={{ color: "#16a085" }}>Hospital</span></Link>
 
                 <nav className="navbar">
-                    <a href="#home">home</a>
-                    <a href="#about">about</a>
-                    <a href="#services">services</a>
+                    <Link to="/">home</Link>
+                    <a href="/#about">about</a>
+                    <a href="/#services">services</a>
                     {/* <a href="#Departments">doctors</a> */}
                     {/* submenu mathi ko ma halnu xa */}
-                    <a href="#blogs">blogs</a>
-                    <a href="#book">appointment</a>
-                    <a href="#contacts">contact us</a>
-                    <a href="#login"> Login</a>
-                    <a href="#register"> Register</a>
+                    <Link to="/blogs">blogs</Link>
+                    <Link to="/book">appointment</Link>
+                    <a href="/#contacts">contact us</a>
+                    <Link to="/login"> Login</Link>
+                    <Link to="/register"> Register</Link>
 
                 </nav>
 
@@ -37,7 +38,7 @@ const Header = () => {
             </header>
 
             <Modal
-                title={<a href="/" className="logo text-black d-flex justify-content-center h3 " ><LocalHospitalIcon sx={{ fontSize: 20 }} style={{ color: "#16a085" }} /> My<span style={{ color: "#16a085" }}>Hospital</span></a>}
+                title={<Link to="/" className="logo text-black d-flex justify-content-center h3 " ><LocalHospitalIcon sx={{ fontSize: 20 }} style={{ color: "#16a085" }} /> My<span style={{ color: "#16a085" }}>Hospital</span></Link>}
 
                 open={showModal}
                 onOk={() => {
@@ -59,11 +60,11 @@ const Header = () => {
                     <p><a href="#home" onClick={() => setShowModal(false)} >home</a></p>
                     <p><a href="#about" onClick={() => setShowModal(false)}>about</a></p>
                     <p><a href="#services" onClick={() => setShowModal(false)}>services </a></p>
-                    <p><a href="#blogs" onClick={() => setShowModal(false)}>blogs</a></p>
-                    <p><a href="#book" onClick={() => setShowModal(false)}>appointment</a></p>
+                    <p><Link to="/blogs" onClick={() => setShowModal(false)}>blogs</Link></p>
+                    <p><Link to="/book" onClick={() => setShowModal(false)}>appointment</Link></p>
                     <p><a href="#contacts" onClick={() => setShowModal(false)}>contact us</a></p>
-                    <p><a href="#login" onClick={() => setShowModal(false)}>Login</a></p>
-                    <p><a href="#register" onClick={() => setShowModal(false)}>Register</a></p>
+                    <p><Link to="/login" onClick={() => setShowModal(false)}>Login</Link></p>
+                    <p><Link to="/register" onClick={() => setShowModal(false)}>Register</Link></p>
 
                     {/* login register Butoton */}
                 </nav>
