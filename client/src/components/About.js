@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { about } from '../assets/Homepage'
 import '../styles/About.css'
 
@@ -20,7 +21,7 @@ const About = () => {
                             <br /> <br />
                             The hospital is a 1600 bedded, state of the art health care facility offering a wide range of medical, surgical and diagnostic services. The hospital has special features like a Wellness Center to help our community stay healthy. With latest in technology and a network of qualified physicians and staff.</p>
 
-                        <a href="#about" className="btn"> learn more <span className="fas fa-chevron-right"></span> </a>
+                        <Link to="/blogs" className="btn"> learn more <span className="fas fa-chevron-right"></span> </Link>
                         {/* Departments ko page ma jane ni ya bata */}
                     </div>
 
