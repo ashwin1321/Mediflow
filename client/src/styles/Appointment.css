@@ -1,63 +1,56 @@
-
 .form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 105vh;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-@media (max-width: 767px) {
-    form {
-        width: 90%;
-    }
-}
-h2 {
-    color: #16A085;
-    margin-bottom: 40px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .form-group {
-    width: 100%;
     margin-bottom: 20px;
 }
 
 label {
+    display: block;
+    margin-bottom: 5px;
     font-weight: bold;
-    margin-bottom: 10px;
 }
 
-input,
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='date'],
+input[type='time'] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 select {
     width: 100%;
     padding: 10px;
-    font-size: 16px;
-    box-sizing: border-box;
-    border-radius: 5px;
     border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-input[type="date"] {
-    appearance: none;
-}
-
-button[type="submit"] {
-    background-color: #16A085;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 5px;
+button[type='submit'] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
     border: none;
-    font-size: 16px;
+    border-radius: 4px;
     cursor: pointer;
-    margin-top: 20px;
 }
 
-button[type="submit"]:hover {
-    opacity: 0.8;
+button[type='submit']:hover {
+    background-color: #0069d9;
 }
 
-
+@media screen and (max-width: 768px) {
+    .form-container {
+        width: 90%;
+    }
+}
