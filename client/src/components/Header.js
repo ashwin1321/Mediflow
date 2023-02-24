@@ -25,9 +25,7 @@ const Header = () => {
           <Link to="/blogs">blogs</Link>
           <Link to="/book">appointment</Link>
 
-          <a href="/login" s>
-            Login
-          </a>
+          <Link to="/login">Login</Link>
         </nav>
 
         <div id="menu-btn">
