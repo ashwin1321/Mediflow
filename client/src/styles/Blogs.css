@@ -1,84 +1,64 @@
-.blogs .box-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 2rem;
+body {
+  position: relative;
+  /* background: #f1fffa; */
 }
 
-.blogs .box-container .box {
-  border: var(--border);
-  box-shadow: var(--box-shadow);
-  border-radius: 0.5rem;
-  padding: 2rem;
-  margin-bottom: 33%;
-  margin-top: 5%;
+.primary-color {
+  color: #16a085;
 }
 
-.blogs .box-container .box .image {
-  height: 20rem;
-  overflow: hidden;
-  border-radius: 0.5rem;
+/*#############projects##########*/
+
+#projects button {
+  background: #16a085;
+  color: #f1fffa;
+  transition: all 0.5s ease-in-out;
 }
 
-.blogs .box-container .box .image img {
-  height: 100%;
-  width: 100%;
+#projects button:hover {
+  background: #242424;
+}
+
+/* Prevent image stretching as it's resized */
+.card-img-top {
   object-fit: cover;
 }
 
-.blogs .box-container .box:hover .image img {
-  transform: scale(1.2);
-}
-
-.blogs .box-container .box .content {
-  padding-top: 1rem;
-}
-
-.blogs .box-container .box .content .icon {
-  padding: 1rem 0;
+.row > div[class*="col-"] {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
-.blogs .box-container .box .content .icon a {
-  font-size: 1.4rem;
-  color: var(--light-color);
+/* Hover effects */
+.card {
+  transition: -webkit-transform 0.3s ease;
+  min-height: 58vh;
 }
 
-.blogs .box-container .box .content .icon a:hover {
-  color: var(--green);
+.card:hover {
+  transform: scale(1.01, 1.01);
 }
 
-.blogs .box-container .box .content .icon a i {
-  padding-right: 0.5rem;
-  color: var(--green);
+/* Responsive design for image heights */
+@media (min-width: 576px) {
+  .card-img-top {
+    height: 50vw;
+  }
 }
 
-.blogs .box-container .box .content h3 {
-  color: var(--black);
-  font-size: 3rem;
+@media (min-width: 768px) {
+  .card-img-top {
+    height: 30vw;
+  }
 }
 
-.blogs .box-container .box .content p {
-  color: var(--light-color);
-  font-size: 1.5rem;
-  line-height: 1.8;
-  padding: 1rem 0;
+@media (min-width: 992px) {
+  .card-img-top {
+    height: 20vw;
+  }
 }
 
-.headinsg {
-  margin-top: 10%;
-  margin-bottom: 1%;
-  text-align: center;
-  padding-bottom: 2rem;
-  text-shadow: var(--text-shadow);
-  text-transform: uppercase;
-  color: var(--black);
-  font-size: 5rem;
-  letter-spacing: 0.4rem;
-}
-
-.headinsg span {
-  text-transform: uppercase;
-  color: var(--green);
+@media (min-width: 1200px) {
+  .card-img-top {
+    height: 20vw;
+  }
 }
