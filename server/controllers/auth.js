@@ -7,11 +7,150 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 exports.loginController = async (req, res) => {
-    res.send("login");
+    try {
+        const { email, password, role } = req.body;
+
+        if (!email || !password || !role) {
+            return res.status(400).json({ error: "Please fill all the fields" });
+        }
+
+        if (role === "doctor") {
+
+            const query = `SELECT * FROM ${ro} WHERE email = $1`;
+            const values = [email];
+
+            const result = await client.query(query, values);
+
+            if (result.rows.length === 0) {
+                return res.status(400).json({ noUser: "Invalid credentials" });
+            }
+
+            const isMatch = bcrypt.compareSync(req.body.password, result.rows[0].password);
+
+            if (!isMatch) {
+                return res.status(400).json({ wrongPassword: "Invalid credentials" });
+            }
+
+            const payload = {
+                id: result.rows[0].did,
+                name: result.rows[0].name,
+                role: result.rows[0].role,
+            };
+
+            const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 3600 });
+            const { password, ...rest } = result.rows[0];
+
+            res.cookie("access_token", token, {
+                httpOnly: true,
+            })
+                .status(200)
+                .json({ ...rest });
+        }
+
+        if (role === "lab") {
+
+            const query = `SELECT * FROM lab WHERE email = $1`;
+            const values = [email];
+
+            const result = await client.query(query, values);
+
+            if (result.rows.length === 0) {
+                return res.status(400).json({ noUser: "Invalid credentials" });
+            }
+
+            const isMatch = bcrypt.compareSync(req.body.password, result.rows[0].password);
+
+            if (!isMatch) {
+                return res.status(400).json({ wrongPassword: "Invalid credentials" });
+            }
+
+            const payload = {
+                id: result.rows[0].lid,
+                name: result.rows[0].name,
+                role: result.rows[0].role,
+            };
+
+            const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 3600 });
+            const { password, ...rest } = result.rows[0];
+
+            res.cookie("access_token", token, {
+                httpOnly: true,
+            })
+                .status(200)
+                .json({ ...rest });
+        }
+
+        if (role === "admin") {
+            const query = `SELECT * FROM admin WHERE email = $1`;
+            const values = [email];
+
+            const result = await client.query(query, values);
+
+            if (result.rows.length === 0) {
+                return res.status(400).json({ noUser: "Invalid credentials" });
+            }
+
+            const isMatch = bcrypt.compareSync(req.body.password, result.rows[0].password);
+
+            if (!isMatch) {
+                return res.status(400).json({ wrongPassword: "Invalid credentials" });
+            }
+
+            const payload = {
+                id: result.rows[0].lid,
+                name: result.rows[0].name,
+                role: result.rows[0].role,
+            };
+
+            const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 3600 });
+            const { password, ...rest } = result.rows[0];
+
+            res.cookie("access_token", token, {
+                httpOnly: true,
+            })
+                .status(200)
+                .json({ ...rest });
+        }
+
+        if (role === "patient") {
+
+            const query = `SELECT * FROM patients WHERE email = $1`;
+            const values = [email];
+
+            const result = await client.query(query, values);
+
+            if (result.rows.length === 0) {
+                return res.status(400).json({ noUser: "Invalid credentials" });
+            }
+
+            const isMatch = bcrypt.compareSync(req.body.password, result.rows[0].password);
+
+            if (!isMatch) {
+                return res.status(400).json({ wrongPassword: "Invalid credentials" });
+            }
+
+            const payload = {
+                id: result.rows[0].pid,
+                name: result.rows[0].name,
+                role: result.rows[0].role,
+            };
+
+            const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 3600 });
+            const { password, ...rest } = result.rows[0];
+
+            res.cookie("access_token", token, {
+                httpOnly: true,
+            })
+                .status(200)
+                .json({ ...rest });
+        }
+
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 }
 
 exports.registerController = async (req, res) => {
-
     const role = req.body.role;
 
     try {
@@ -42,9 +181,6 @@ exports.registerController = async (req, res) => {
                 const result = await client.query(query, values)
                 res.status(200).json({ message: "Doctor registered successfully" });
             }
-
-
-
         }
 
         if (role === "lab") {
@@ -95,9 +231,20 @@ exports.registerController = async (req, res) => {
         res.status(500).json({ error: error.message });
 
     }
-
-
 }
 
-exports.logoutController = async (req, res) => { }
+exports.logoutController = async (req, res) => {
+    res
+        .clearCookie("access_token", {
+            sameSite: true,
+            secure: true,
+        })
+        .status(200)
+        .json({ message: "Logout successful" });
+}
+
+
+exports.changePassword = async (req, res) => {
+
+}
 
