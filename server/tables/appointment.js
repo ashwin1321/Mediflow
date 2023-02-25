@@ -1,4 +1,4 @@
-const { connectDb, client } = require("../models/db");
+const { connectDb, client } = require("../config/db");
 
 const createAssignmentTable = async () => {
   try {

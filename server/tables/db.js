@@ -1,4 +1,4 @@
-const db = require("../models/db");
+const db = require("../config/db");
 
 const createDoctorTable = require("./doctors");
 const createPatientTable = require("./patients");
