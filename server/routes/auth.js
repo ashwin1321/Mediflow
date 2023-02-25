@@ -3,10 +3,16 @@
 
 const express = require("express");
 const router = express.Router();
-// const bcrypt = require("bcryptjs");
-// const jwt = require("jsonwebtoken");
-// const auth = require("../middleware/auth");
+const { loginController, registerConroller, logoutController } = require("../controllers/auth");
 
-router.route("/login").post((req, res) => {});
+
+router.route("/login")
+    .post(loginController);
+
+router.route("/register")
+    .post(registerConroller);
+
+router.route("/logout")
+    .post(logoutController);
 
 module.exports = router;

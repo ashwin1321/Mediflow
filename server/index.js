@@ -33,8 +33,9 @@ const upload = multer({ storage: storage });
 // app.post("/upload", upload.single("file"), Controller.uploadReport); // make in controller
 
 app.use("/auth", userAuth);
-// app.use("/reports", PatientReport);
-// app.use("/appointments", Appointments);
+// app.use(validateToken());
+app.use("/reports", PatientReport);
+app.use("/appointments", Appointments);
 
 app.listen(5000, () => {
   console.log("Server started on port 5000");
