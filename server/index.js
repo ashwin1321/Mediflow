@@ -6,6 +6,10 @@ const cors = require("cors");
 const multer = require("multer");
 const cookieParser = require("cookie-parser");
 
+const userAuth = require("./routes/auth");
+const PatientReport = require("./routes/reports");
+const Appointments = require("./routes/appointments");
+
 const app = express();
 
 // middlewares
@@ -26,4 +30,12 @@ const upload = multer({ storage: storage });
 
 //routes
 
-app.post("/upload", upload.single("file"), uploadReport); // make in controller
+// app.post("/upload", upload.single("file"), Controller.uploadReport); // make in controller
+
+app.use("/auth", userAuth);
+// app.use("/reports", PatientReport);
+// app.use("/appointments", Appointments);
+
+app.listen(5000, () => {
+  console.log("Server started on port 5000");
+});
