@@ -1,5 +1,3 @@
-const db = require("../config/db");
-
 const createDoctorTable = require("./doctors");
 const createPatientTable = require("./patients");
 const createLabTable = require("./labAssistant");
