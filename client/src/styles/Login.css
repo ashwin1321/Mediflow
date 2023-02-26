@@ -50,7 +50,7 @@ select {
   color: #777777;
   border-radius: 5px;
   border: 1px solid #dddddd;
-  padding-left: 60px;
+  /* padding-left: 60px; */
 }
 
 input[type="checkbox"] {
