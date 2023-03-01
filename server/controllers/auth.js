@@ -39,13 +39,14 @@ exports.loginController = async (req, res) => {
 
             const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 3600 });
             const { password, ...rest } = result.rows[0];
+            const id = result.rows[0].did
+            const role = result.rows[0].role
 
-            res.cookie("access_token", token, {
-                httpOnly: true,
-            })
+            res
                 .status(200)
-                .json({ ...rest });
+                .json({ token, id, role });
         }
+
 
         if (role === "lab") {
 
@@ -55,13 +56,13 @@ exports.loginController = async (req, res) => {
             const result = await client.query(query, values);
 
             if (result.rows.length === 0) {
-                return res.status(400).json({ noUser: "Invalid credentials" });
+                return res.json({ noUser: "Invalid credentials" });
             }
 
             const isMatch = bcrypt.compareSync(req.body.password, result.rows[0].password);
 
             if (!isMatch) {
-                return res.status(400).json({ wrongPassword: "Invalid credentials" });
+                return res.json({ wrongPassword: "Invalid credentials" });
             }
 
             const payload = {
@@ -72,14 +73,13 @@ exports.loginController = async (req, res) => {
 
             const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 3600 });
             const { password, ...rest } = result.rows[0];
+            const id = result.rows[0].lid
+            const role = result.rows[0].role
 
-            res.cookie("access_token", token, {
-                httpOnly: true,
-            })
+            res
                 .status(200)
-                .json({ ...rest });
+                .json({ token, id, role });
         }
-
         if (role === "admin") {
             const query = `SELECT * FROM admin WHERE email = $1`;
             const values = [email];
@@ -87,31 +87,29 @@ exports.loginController = async (req, res) => {
             const result = await client.query(query, values);
 
             if (result.rows.length === 0) {
-                return res.status(400).json({ noUser: "Invalid credentials" });
+                return res.json({ noUser: "Invalid credentials" });
             }
 
             const isMatch = req.body.password === result.rows[0].password
 
             if (!isMatch) {
-                return res.status(400).json({ wrongPassword: "Invalid credentials" });
+                return res.json({ wrongPassword: "Invalid credentials" });
             }
 
             const payload = {
-                id: result.rows[0].lid,
+                id: result.rows[0].id,
                 name: result.rows[0].name,
                 role: result.rows[0].role,
             };
 
             const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 3600 });
             const { password, ...rest } = result.rows[0];
+            const role = result.rows[0].role
 
-            res.cookie("access_token", token, {
-                httpOnly: true,
-            })
+            res
                 .status(200)
-                .json({ ...rest });
+                .json({ token, role });
         }
-
         if (role === "patient") {
 
             const query = `SELECT * FROM patients WHERE email = $1`;
@@ -120,13 +118,13 @@ exports.loginController = async (req, res) => {
             const result = await client.query(query, values);
 
             if (result.rows.length === 0) {
-                return res.status(400).json({ noUser: "Invalid credentials" });
+                return res.json({ noUser: "Invalid credentials" });
             }
 
             const isMatch = bcrypt.compareSync(req.body.password, result.rows[0].password);
 
             if (!isMatch) {
-                return res.status(400).json({ wrongPassword: "Invalid credentials" });
+                return res.json({ wrongPassword: "Invalid credentials" });
             }
 
             const payload = {
@@ -137,16 +135,16 @@ exports.loginController = async (req, res) => {
 
             const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 3600 });
             const { password, ...rest } = result.rows[0];
+            const id = result.rows[0].pid
+            const role = result.rows[0].role
 
-            res.cookie("access_token", token, {
-                httpOnly: true,
-            })
+            res
                 .status(200)
-                .json({ ...rest });
+                .json({ token, id, role });
         }
 
     } catch (err) {
-        res.status(500).json({ error: err.message });
+        res.status(500).json({});
     }
 }
 
