@@ -27,12 +27,17 @@ const Login = () => {
         return;
       }
 
-      alert("Logged in Successfully");
-      Cookies.set("token", res.data.token);
-      Cookies.set("id", res.data.id);
-      Cookies.set("role", res.data.role);
+      if (res.data.error) {
+        alert("Some error occured, please try again later");
+        return;
+      }
 
-      navigate("/");
+      if (res.data.otpSend) {
+        alert("OTP sent to your email, please verify");
+        Cookies.set("id", res.data.id);
+        Cookies.set("role", res.data.role);
+      }
+      navigate("/otp");
     });
   };
 

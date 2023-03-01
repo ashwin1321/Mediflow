@@ -5,6 +5,7 @@ import Blogs from "./pages/Blogs";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Appoiment from "./pages/Appoiment";
+import Otp from "./pages/Otp";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/book" element={<Appoiment />} />
+        <Route path="/otp" element={<Otp />} />
 
       </Routes>
     </BrowserRouter>
