@@ -216,7 +216,7 @@ exports.registerController = async (req, res) => {
             const result = await client.query(query, values);
 
             if (result.rows.length > 0) {
-                return res.status(400).json({ userExists: "user already exists" });
+                return res.json({ userExists: "user already exists" });
             }
             else {
                 const query = `INSERT INTO patients (name, email, citizenship, age, password, role, pid) VALUES ($1, $2, $3, $4, $5, $6, $7)`;
