@@ -1,20 +1,33 @@
 import Layout from "../pages/Layout";
 import React, { useState } from "react";
 import "../styles/Register.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
-  const [Citizenship, setCitizenship] = useState("");
+  const [citizenship, setCitizenship] = useState("");
   const [password, setPassword] = useState("");
   const pid = "P" + Math.floor(Math.random() * 100000);
+  const role = "patient";
 
-  const data = { name, age, email, Citizenship, password, pid };
+  const data = { name, age, email, citizenship, password, pid, role };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(data);
+
+    axios.post("http://localhost:5000/auth/register", data).then((res) => {
+      console.log(res.data);
+      if (res.data.userExists) {
+        alert("User already exists");
+      } else {
+        alert("Registered Successfully");
+        navigate("/login");
+      }
+    });
   };
   return (
     <Layout>
