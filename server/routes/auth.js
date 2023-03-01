@@ -3,7 +3,7 @@
 
 const express = require("express");
 const router = express.Router();
-const { loginController, registerController, logoutController } = require("../controllers/auth");
+const { loginController, registerController, logoutController, otpController } = require("../controllers/auth");
 
 
 router.route("/login")
@@ -14,5 +14,9 @@ router.route("/register")
 
 router.route("/logout")
     .post(logoutController);
+
+
+router.route("/otp")
+    .post(otpController);
 
 module.exports = router;

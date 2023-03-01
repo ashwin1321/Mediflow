@@ -1,10 +1,11 @@
-// controller for logging in
-// otp for login
-// logout
-
 const { connectDb, client } = require("../config/db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const nodemailer = require("nodemailer");
+require("dotenv").config();
+
+const generatedOtp = Math.floor(1000 + Math.random() * 9000)
+
 
 exports.loginController = async (req, res) => {
     try {
@@ -31,22 +32,35 @@ exports.loginController = async (req, res) => {
                 return res.status(400).json({ wrongPassword: "Invalid credentials" });
             }
 
-            const payload = {
-                id: result.rows[0].did,
-                name: result.rows[0].name,
-                role: result.rows[0].role,
-            };
-
-            const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 3600 });
-            const { password, ...rest } = result.rows[0];
             const id = result.rows[0].did
             const role = result.rows[0].role
 
-            res
-                .status(200)
-                .json({ token, id, role });
-        }
+            let mailTransporter = nodemailer.createTransport({
+                service: 'Outlook365',
+                auth: {
+                    user: process.env.SENDER_EMAIL,
+                    pass: process.env.SENDER_PASSWORD
+                }
+            });
 
+            let mailDetails = {
+                from: process.env.SENDER_EMAIL,
+                to: result.rows[0].email,
+                subject: 'otp for login',
+                text: `Your OTP is ${generatedOtp}`
+            };
+
+            console.log(process.env.SENDER_EMAIL)
+
+            mailTransporter.sendMail(mailDetails, function (err, data) {
+                if (err) {
+                    res.json({ error: "Error in sending email" });
+                } else {
+                    res.status(200).json({ otpSend: "OTP sent to your email", id, role });
+                }
+            });
+
+        }
 
         if (role === "lab") {
 
@@ -71,14 +85,33 @@ exports.loginController = async (req, res) => {
                 role: result.rows[0].role,
             };
 
-            const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 3600 });
-            const { password, ...rest } = result.rows[0];
             const id = result.rows[0].lid
             const role = result.rows[0].role
 
-            res
-                .status(200)
-                .json({ token, id, role });
+            let mailTransporter = nodemailer.createTransport({
+                service: 'Outlook365',
+                auth: {
+                    user: process.env.SENDER_EMAIL,
+                    pass: process.env.SENDER_PASSWORD
+                }
+            });
+
+            let mailDetails = {
+                from: process.env.SENDER_EMAIL,
+                to: result.rows[0].email,
+                subject: 'otp for login',
+                text: `Your OTP is ${generatedOtp}`
+            };
+
+            console.log(process.env.SENDER_EMAIL)
+
+            mailTransporter.sendMail(mailDetails, function (err, data) {
+                if (err) {
+                    res.json({ error: "Error in sending email" });
+                } else {
+                    res.status(200).json({ otpSend: "OTP sent to your email", id, role });
+                }
+            });
         }
         if (role === "admin") {
             const query = `SELECT * FROM admin WHERE email = $1`;
@@ -96,19 +129,32 @@ exports.loginController = async (req, res) => {
                 return res.json({ wrongPassword: "Invalid credentials" });
             }
 
-            const payload = {
-                id: result.rows[0].id,
-                name: result.rows[0].name,
-                role: result.rows[0].role,
-            };
-
-            const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 3600 });
-            const { password, ...rest } = result.rows[0];
             const role = result.rows[0].role
 
-            res
-                .status(200)
-                .json({ token, role });
+            let mailTransporter = nodemailer.createTransport({
+                service: 'Outlook365',
+                auth: {
+                    user: process.env.SENDER_EMAIL,
+                    pass: process.env.SENDER_PASSWORD
+                }
+            });
+
+            let mailDetails = {
+                from: process.env.SENDER_EMAIL,
+                to: result.rows[0].email,
+                subject: 'otp for login',
+                text: `Your OTP is ${generatedOtp}`
+            };
+
+            console.log(process.env.SENDER_EMAIL)
+
+            mailTransporter.sendMail(mailDetails, function (err, data) {
+                if (err) {
+                    res.json({ error: "Error in sending email" });
+                } else {
+                    res.status(200).json({ otpSend: "OTP sent to your email", id, role });
+                }
+            });
         }
         if (role === "patient") {
 
@@ -127,20 +173,34 @@ exports.loginController = async (req, res) => {
                 return res.json({ wrongPassword: "Invalid credentials" });
             }
 
-            const payload = {
-                id: result.rows[0].pid,
-                name: result.rows[0].name,
-                role: result.rows[0].role,
-            };
-
-            const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 3600 });
-            const { password, ...rest } = result.rows[0];
             const id = result.rows[0].pid
             const role = result.rows[0].role
 
-            res
-                .status(200)
-                .json({ token, id, role });
+            let mailTransporter = nodemailer.createTransport({
+                service: 'Outlook365',
+                auth: {
+                    user: process.env.SENDER_EMAIL,
+                    pass: process.env.SENDER_PASSWORD
+                }
+            });
+
+            let mailDetails = {
+                from: process.env.SENDER_EMAIL,
+                to: result.rows[0].email,
+                subject: 'otp for login',
+                text: `Your OTP is ${generatedOtp}`
+            };
+
+            console.log(process.env.SENDER_EMAIL)
+
+            mailTransporter.sendMail(mailDetails, function (err, data) {
+                if (err) {
+                    res.json({ error: "Error in sending email" });
+                } else {
+                    res.status(200).json({ otpSend: "OTP sent to your email", id, role });
+                }
+            });
+
         }
 
     } catch (err) {
@@ -246,3 +306,25 @@ exports.changePassword = async (req, res) => {
 
 }
 
+
+exports.otpController = async (req, res) => {
+
+    const { otp } = req.body;
+    try {
+
+        check = otp == generatedOtp;
+        console.log(otp, generatedOtp)
+        if (otp == generatedOtp) {
+            const token = jwt.sign(otp, process.env.SECRET_KEY);
+            return res.status(200).json({ message: "OTP verified successfully", token });
+        }
+
+        return res.json({ wrongOtp: "Invalid OTP" });
+
+
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+
+    }
+
+}
