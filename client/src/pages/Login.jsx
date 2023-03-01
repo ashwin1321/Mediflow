@@ -2,8 +2,12 @@ import Layout from "../pages/Layout";
 import React, { useState } from "react";
 import "../styles/Login.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [role, setRole] = useState("patient");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +16,24 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(data);
+
+    axios.post("http://localhost:5000/auth/login", data).then((res) => {
+      if (res.data.noUser) {
+        alert("User does not exist");
+        return;
+      }
+      if (res.data.wrongPassword) {
+        alert("Wrong Password");
+        return;
+      }
+
+      alert("Logged in Successfully");
+      Cookies.set("token", res.data.token);
+      Cookies.set("id", res.data.id);
+      Cookies.set("role", res.data.role);
+
+      navigate("/");
+    });
   };
 
   return (
