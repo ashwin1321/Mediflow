@@ -90,7 +90,7 @@ exports.loginController = async (req, res) => {
                 return res.status(400).json({ noUser: "Invalid credentials" });
             }
 
-            const isMatch = bcrypt.compareSync(req.body.password, result.rows[0].password);
+            const isMatch = req.body.password === result.rows[0].password
 
             if (!isMatch) {
                 return res.status(400).json({ wrongPassword: "Invalid credentials" });
