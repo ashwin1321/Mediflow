@@ -5,7 +5,7 @@ exports.getDocController = async (req, res) => {
 
     try {
 
-        const name = req.params.name;
+        const name = req.query.name;
 
         if (name === "") {
 
@@ -21,7 +21,7 @@ exports.getDocController = async (req, res) => {
             const query = `SELECT * FROM doctors WHERE name = $1`;
             const value = [name];
 
-            const result = client.query(query, value);
+            const result = await client.query(query, value);
 
             if (result.rows.length === 0) {
                 return res.status(404).json({ error: "No such doctor found" });
@@ -50,7 +50,7 @@ exports.deleteDocController = async (req, res) => {
         const query = `DELETE FROM doctors WHERE id = $1`;
         const value = [id];
 
-        const result = client.query(query, value);
+        const result = await client.query(query, value);
 
         if (result.rows.length === 0) {
             return res.json({ error: "No such doctor found" }).status(404)

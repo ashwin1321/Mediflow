@@ -3,8 +3,7 @@ const { connectDb, client } = require("../config/db");
 exports.getLabController = async (req, res) => {
     try {
 
-        const name = req.params.name;
-
+        const name = req.query.name;
         if (name === "") {
 
             const query = `SELECT * FROM lab`;
@@ -19,9 +18,10 @@ exports.getLabController = async (req, res) => {
             const query = `SELECT * FROM lab WHERE name = $1`;
             const value = [name];
 
-            const result = client.query(query, value);
+            const result = await client.query(query, value);
+            console.log(result.rows)
 
-            if (result.rows.length === 0) {
+            if (result.rows === undefined || result.rows === null) {
                 return res.status(404).json({ error: "No such lab assistant found" });
             }
 
@@ -42,12 +42,13 @@ exports.getLabController = async (req, res) => {
 exports.deleteLabController = async (req, res) => {
 
     try {
-        const id = req.body;
+        const id = req.body.id;
+        console.log(id)
 
-        const query = `DELETE FROM lab WHERE id = $1`;
+        const query = `DELETE FROM lab WHERE lid = $1`;
         const value = [id];
 
-        const result = client.query(query, value);
+        const result = await client.query(query, value);
 
         if (result.rows.length === 0) {
             return res.json({ error: "No such lab assistant found" }).status(404)
