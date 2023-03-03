@@ -9,6 +9,8 @@ const cookieParser = require("cookie-parser");
 const userAuth = require("./routes/auth");
 const PatientReport = require("./routes/reports");
 const Appointments = require("./routes/appointments");
+const { postReport } = require("./controllers/reports");
+const addDoc = require("./routes/addDoc");
 
 const app = express();
 
@@ -30,10 +32,11 @@ const upload = multer({ storage: storage });
 
 //routes
 
-// app.post("/upload", upload.single("file"), Controller.uploadReport); // make in controller
 
 app.use("/auth", userAuth);
 // app.use(validateToken());
+app.use("/add", addDoc)
+app.post("/upload", upload.single("file"), postReport); // make in controller
 app.use("/reports", PatientReport);
 app.use("/appointments", Appointments);
 
