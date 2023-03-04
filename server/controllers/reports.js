@@ -2,6 +2,12 @@
 
 
 exports.getReports = async (req, res) => {
+
+    try {
+
+    } catch (error) {
+
+    }
 }
 
 exports.addReport = async (req, res) => { }
