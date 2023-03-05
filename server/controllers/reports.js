@@ -15,4 +15,8 @@ exports.addReport = async (req, res) => { }
 exports.deleteReport = async (req, res) => { }
 
 
-exports.postReport = async (req, res) => { }
+exports.postReport = async (req, res) => {
+
+
+
+}

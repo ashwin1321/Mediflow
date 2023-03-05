@@ -59,7 +59,8 @@ exports.addAppointment = async (req, res) => {
 
     try {
 
-        const { pid, did, date, time, remarks, phonenumber } = req.body;
+        const { pid, did, date, time, remarks, phonenumber, email } = req.body;
+
 
         const query = `insert into appointments(pid, did, date, time, remarks, phonenumber) values($1, $2, $3, $4, $5, $6)`;
         const values = [pid, did, date, time, remarks, phonenumber];
@@ -77,7 +78,7 @@ exports.addAppointment = async (req, res) => {
 
             let mailDetails = {
                 from: process.env.SENDER_EMAIL,
-                to: result.rows[0].email,
+                to: email,
                 subject: 'Appointment booked',
                 text: `Your appointment has been booked on ${date} at ${time}`
             };
