@@ -1,0 +1,146 @@
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    padding: 1rem;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin-left: 1rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #333;
+    color: #fff;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    z-index: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-nav-link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.sidebar-nav-link:hover {
+    color: #007bff;
+}
+
+/* Main content */
+.main-content {
+    margin-left: 200px;
+    padding: 1rem;
+}
+
+/* Dashboard header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.dashboard-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Cards */
+.card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    padding: 1rem;
+}
+
+.card-header {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.card-body {
+    font-size: 1rem;
+}
+
+.card-footer {
+    font-size: 0.875rem;
+    color: #999;
+    margin-top: 1rem;
+}
+
+/* Tables */
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table thead th {
+    border-bottom: 2px solid #ccc;
+    font-weight: bold;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.table tbody td {
+    border-bottom: 1px solid #ccc;
+    padding: 0.5rem;
+}
+
+.table tbody tr:hover {
+    background-color: #f5f5f5;
+}
