@@ -36,6 +36,7 @@ const Login = () => {
         alert("OTP sent to your email, please verify");
         Cookies.set("id", res.data.id);
         Cookies.set("role", res.data.role);
+        Cookies.set("email", res.data.email);
       }
       navigate("/otp");
     });

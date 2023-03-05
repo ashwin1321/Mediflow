@@ -2,10 +2,12 @@ import Layout from "../pages/Layout";
 import React, { useState } from "react";
 import { bookImg } from "../assets/Homepage";
 import "../styles/Appointment.css";
+import Cookies from "js-cookie";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Appoiment = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
   const [phone, setPhone] = useState("");
   const [department, setDepartment] = useState("");
   const [appointmentDate, setAppointmentDate] = useState("");
@@ -13,12 +15,40 @@ const Appoiment = () => {
   const [doctor, setDoctor] = useState("");
   const [appointmentTime, setAppointmentTime] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("esewa");
-  const [paymentStatus, setPaymentStatus] = useState("");
+  // const [paymentStatus, setPaymentStatus] = useState("");
+  const pid = Cookies.get("id");
+  const email = Cookies.get("email");
 
   //  ============= get doctors name and show in the options of the select tag ===============
 
+  const data = {
+    pid,
+    phonenumber: phone,
+    email,
+    department,
+    date: appointmentDate,
+    remarks: reason,
+    did: doctor,
+    time: appointmentTime,
+    paymentMethod,
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    axios
+      .post("http://localhost:5000/appointments/add-appointment", data)
+      .then((res) => {
+        if (res.data.booked) {
+          alert("Appointment booked successfully");
+          navigate("/dashboard");
+        } else {
+          alert("Something went wrong");
+        }
+      })
+      .catch((err) => {
+        alert("Something went wrong");
+      });
   };
   return (
     <Layout>
@@ -79,30 +109,30 @@ const Appoiment = () => {
               <option value="">Select a doctor</option>
               {department === "cardiology" && (
                 <>
-                  <option value="dr-john">Dr. John</option>
-                  <option value="dr-mary">Dr. Mary</option>
-                  <option value="dr-david">Dr. David</option>
+                  <option value="d10sd1">Dr. John</option>
+                  <option value="d10sd1">Dr. Mary</option>
+                  <option value="d10sd1">Dr. David</option>
                 </>
               )}
               {department === "orthopedics" && (
                 <>
-                  <option value="dr-tom">Dr. Tom</option>
-                  <option value="dr-lisa">Dr. Lisa</option>
-                  <option value="dr-susan">Dr. Susan</option>
+                  <option value="d10sd1">Dr. Tom</option>
+                  <option value="d10sd1">Dr. Lisa</option>
+                  <option value="d10sd1">Dr. Susan</option>
                 </>
               )}
               {department === "pediatrics" && (
                 <>
-                  <option value="dr-sarah">Dr. Sarah</option>
-                  <option value="dr-jessica">Dr. Jessica</option>
-                  <option value="dr-amy">Dr. Amy</option>
+                  <option value="d10sd1">Dr. Sarah</option>
+                  <option value="d10sd1">Dr. Jessica</option>
+                  <option value="d10sd1">Dr. Amy</option>
                 </>
               )}
               {department === "dermatology" && (
                 <>
-                  <option value="dr-michael">Dr. Michael</option>
-                  <option value="dr-karen">Dr. Karen</option>
-                  <option value="dr-laura">Dr. Laura</option>
+                  <option value="d10sd1">Dr. Michael</option>
+                  <option value="d10sd1">Dr. Karen</option>
+                  <option value="d10sd1">Dr. Laura</option>
                 </>
               )}
             </select>
