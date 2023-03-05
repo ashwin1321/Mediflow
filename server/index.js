@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 const userAuth = require("./routes/auth");
 const PatientReport = require("./routes/reports");
 const Appointments = require("./routes/appointments");
-const { postReport } = require("./controllers/reports");
+const { postReport, downloadReport, updateReport } = require("./controllers/reports");
 const getDoc = require("./routes/getDoc");
 
 const app = express();
@@ -37,6 +37,8 @@ app.use("/auth", userAuth);
 // app.use(validateToken());
 app.use("/get", getDoc)
 app.post("/upload", upload.single("file"), postReport); // make in controller
+app.patch("/update", upload.single("file"), updateReport); // make in controller
+app.get("/download/:id", downloadReport)
 app.use("/reports", PatientReport);
 app.use("/appointments", Appointments);
 
