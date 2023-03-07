@@ -26,7 +26,7 @@ const Otp = () => {
 
       alert("Login successful");
       Cookies.set("token", res.data.token);
-      navigate("/");
+      navigate("/dashboard");
     });
   };
 
