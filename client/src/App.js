@@ -6,7 +6,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Appoiment from "./pages/Appoiment";
 import Otp from "./pages/Otp";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dasboard";
 
 
 function App() {
