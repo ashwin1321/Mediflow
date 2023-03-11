@@ -6,6 +6,7 @@
   background-color: #fff;
   border-bottom: 1px solid #ccc;
   padding: 1rem;
+  position: relative;
 }
 
 .navbar-brand {
@@ -13,6 +14,7 @@
   font-weight: bold;
   text-decoration: none;
   color: #333;
+  /* position: sticky; */
 }
 
 .navbar-nav {
@@ -45,7 +47,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 200px;
+  width: 18%;
   z-index: 1;
   padding: 1rem;
   display: flex;
