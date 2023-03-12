@@ -16,7 +16,7 @@ router.route("/lab")
     .delete(deleteLabController);
 
 
-router.route("/patient/id")
+router.route("/patients")
     .get(getPatientController)
 
 module.exports = router;

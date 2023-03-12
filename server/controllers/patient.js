@@ -2,7 +2,9 @@ const { connectDb, client } = require("../config/db");
 
 exports.getPatientController = async (req, res) => {
     try {
-        const pid = req.params;
+        console.log(`object`)
+        const pid = req.query.pid;
+        console.log(pid)
 
         const query = `SELECT * FROM patients WHERE pid = $1`;
         const value = [pid];
