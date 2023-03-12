@@ -13,7 +13,7 @@ const Dasboard = () => {
                                    <h1 className="navbar-brand">Patient Dashboard</h1>
                                    <ul className="navbar-nav">
                                           <li className="nav-item">
-                                                 <Link to="/" className="nav-link">
+                                                 <Link to="/" className="navbar-brand">
                                                         Logout
                                                  </Link>
                                           </li>
@@ -29,9 +29,9 @@ const Dasboard = () => {
                                                  <h2>Appointments</h2>
                                           </li>
                                           <li className="sidebar-item">
-                                                 <Link to="/appointments" className="sidebar-link">
+                                                 <Link to="/dashboard/detail" className="sidebar-link">
                                                         <i className="fas fa-calendar-alt"></i>
-                                                        <span>View Appointments</span>
+                                                        <span>Detail</span>
                                                  </Link>
                                           </li>
                                           <li className="sidebar-item">
@@ -67,7 +67,7 @@ const Dasboard = () => {
                                    <h1 className="navbar-brand">Doctor Dashboard</h1>
                                    <ul className="navbar-nav">
                                           <li className="nav-item">
-                                                 <Link to="/" className="nav-link">
+                                                 <Link to="/" className="navbar-brand">
                                                         Logout
                                                  </Link>
                                           </li>
@@ -120,7 +120,7 @@ const Dasboard = () => {
                                    <h1 className="navbar-brand">Lab Dashboard</h1>
                                    <ul className="navbar-nav">
                                           <li className="nav-item">
-                                                 <Link to="/" className="nav-link">
+                                                 <Link to="/" className="navbar-brand">
                                                         Logout
                                                  </Link>
                                           </li>
@@ -165,7 +165,7 @@ const Dasboard = () => {
                                    <h1 className="navbar-brand">Hospital Dashboard</h1>
                                    <ul className="navbar-nav">
                                           <li className="nav-item">
-                                                 <Link to="/" className="nav-link">
+                                                 <Link to="/" className="navbar-brand">
                                                         Logout
                                                  </Link>
                                           </li>

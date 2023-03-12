@@ -47,7 +47,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 18%;
+  width: 15%;
   z-index: 1;
   padding: 1rem;
   display: flex;
@@ -83,7 +83,7 @@
 
 /* Main content */
 .main-content {
-  margin-left: 200px;
+  margin-left: 20%;
   padding: 1rem;
 }
 

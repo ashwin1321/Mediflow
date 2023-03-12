@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import Appoiment from "./pages/Appoiment";
 import Otp from "./pages/Otp";
 import Dashboard from "./pages/Dasboard";
+import Detail from "./pages/patient/Detail";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/book" element={<Appoiment />} />
                 <Route path="/otp" element={<Otp />} />
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path='/dashboard/detail' element={<Detail />} />
 
             </Routes>
         </BrowserRouter>
