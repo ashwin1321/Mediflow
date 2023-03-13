@@ -181,28 +181,22 @@ const Dasboard = () => {
                                                  <h2>Manage</h2>
                                           </li>
                                           <li className="sidebar-item">
-                                                 <Link to="/patients" className="sidebar-link">
+                                                 <Link to="/dashboard/manageDoc" className="sidebar-link">
                                                         <i className="fas fa-user-injured"></i>
-                                                        <span>Patients</span>
-                                                 </Link>
-                                          </li>
-                                          <li className="sidebar-item">
-                                                 <Link to="/appointments" className="sidebar-link">
-                                                        <i className="far fa-calendar-alt"></i>
-                                                        <span>Appointments</span>
-                                                 </Link>
-                                          </li>
-                                          <li className="sidebar-item">
-                                                 <Link to="/doctors" className="sidebar-link">
-                                                        <i className="fas fa-user-md"></i>
                                                         <span>Doctors</span>
                                                  </Link>
                                           </li>
 
                                           <li className="sidebar-item">
-                                                 <Link to="/doctors" className="sidebar-link">
+                                                 <Link to="/dashboard/manageLab" className="sidebar-link">
                                                         <i className="fas fa-user-md"></i>
-                                                        <span>Billings</span>
+                                                        <span>Lab Assistant</span>
+                                                 </Link>
+                                          </li>
+
+                                          <li className="sidebar-item">
+                                                 <Link to="/" className="sidebar-link">
+                                                        <span>Logout</span>
                                                  </Link>
                                           </li>
                                    </ul>

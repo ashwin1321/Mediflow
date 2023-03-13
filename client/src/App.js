@@ -8,6 +8,8 @@ import Appoiment from "./pages/Appoiment";
 import Otp from "./pages/Otp";
 import Dashboard from "./pages/Dasboard";
 import Detail from "./pages/patient/Detail";
+import ManageDoctor from "./pages/admin/manageDoctor";
+import ManageLab from "./pages/admin/manageLab";
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
                 <Route path="/otp" element={<Otp />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path='/dashboard/detail' element={<Detail />} />
+                <Route path='/dashboard/manageDoc' element={<ManageDoctor />} />
+                <Route path='/dashboard/manageLab' element={<ManageLab />} />
 
             </Routes>
         </BrowserRouter>
