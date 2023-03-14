@@ -6,9 +6,14 @@ const manageDoctor = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [doctors, setDoctors] = useState([])
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [doctor, setDoctor] = useState("")
+    const [doctorName, setDoctor] = useState("")
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [did, setDid] = useState("")
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [role, setRole] = useState("doctor")
+
+    const data = { role, doctorName, did }
 
     const handleDeleteDoctor = async () => {
         await axios.delete(`http://localhost:5000/get/doc`, did)
@@ -20,12 +25,22 @@ const manageDoctor = () => {
             })
     }
 
+    const handleAddDoctor = async () => {
+        await axios.post(`http://localhost:5000/auth/register`, data)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
+    }
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
         axios.get('http://localhost:5000/get/doc', {
             params: {
-                name: doctor
+                name: doctorName
             }
         })
             .then(res => {
@@ -35,7 +50,7 @@ const manageDoctor = () => {
                 console.log(err)
             })
 
-    }, [doctor])
+    }, [doctorName])
 
 
     return (
