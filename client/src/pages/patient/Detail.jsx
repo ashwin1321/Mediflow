@@ -43,7 +43,7 @@ const detail = () => {
                             <h1>Personal Details</h1>
 
                             <div className="patient-detail-header-right">
-                                <h3>Name: {patient.Name}</h3>
+                                <h3>Name: {patient.name}</h3>
                                 <h3>PID: {patient.pid}</h3>
                                 <h3>Age: {patient.age}</h3>
                                 <h3>Phone: {patient.phone}</h3>
