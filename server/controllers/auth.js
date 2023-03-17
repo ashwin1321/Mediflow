@@ -127,7 +127,9 @@ exports.loginController = async (req, res) => {
 
             if (!isMatch) {
                 return res.json({ wrongPassword: "Invalid credentials" });
+
             }
+
 
             const role = result.rows[0].role
 
@@ -148,14 +150,16 @@ exports.loginController = async (req, res) => {
 
             console.log(process.env.SENDER_EMAIL)
 
-            mailTransporter.sendMail(mailDetails, function (err, data) {
-                if (err) {
-                    res.json({ error: "Error in sending email" });
-                } else {
-                    res.status(200).json({ otpSend: "OTP sent to your email", id, role });
-                }
-            });
+            const sent = mailTransporter.sendMail(mailDetails)
+            if (sent) {
+
+                res.status(200).json({ otpSend: "OTP sent to your email", role });
+            }
+            else {
+                res.json({ error: "Error in sending email" });
+            }
         }
+
         if (role === "patient") {
 
             const query = `SELECT * FROM patients WHERE email = $1`;
@@ -193,14 +197,14 @@ exports.loginController = async (req, res) => {
 
             console.log(process.env.SENDER_EMAIL)
 
-            mailTransporter.sendMail(mailDetails, function (err, data) {
-                if (err) {
-                    res.json({ error: "Error in sending email" });
-                } else {
-                    res.status(200).json({ otpSend: "OTP sent to your email", id, role });
-                }
-            });
+            const sent = mailTransporter.sendMail(mailDetails)
+            if (sent) {
 
+                res.status(200).json({ otpSend: "OTP sent to your email", id, role });
+            }
+            else {
+                res.json({ error: "Error in sending email" });
+            }
         }
 
     } catch (err) {
