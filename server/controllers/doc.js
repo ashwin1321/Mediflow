@@ -6,6 +6,7 @@ exports.getDocController = async (req, res) => {
     try {
 
         const name = req.query.name;
+        console.log(name)
 
         if (name === "") {
 
@@ -24,7 +25,7 @@ exports.getDocController = async (req, res) => {
             const result = await client.query(query, value);
 
             if (result.rows.length === 0) {
-                return res.status(404).json({ error: "No such doctor found" });
+                return res.json({ error: "No such doctor found" });
             }
 
             return res.status(200).json({ result: result.rows });
