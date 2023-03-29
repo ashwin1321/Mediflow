@@ -1,20 +1,26 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Dasboard from '../Dasboard'
 
 const manageDoctor = () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const navigate = useNavigate()
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [doctors, setDoctors] = useState([])
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [doctorName, setDoctor] = useState("")
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [did, setDid] = useState("")
-
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [name, setName] = useState("")
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [email, setEmail] = useState("")
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [role, setRole] = useState("doctor")
 
-    const data = { role, doctorName, did }
+    const data = { did, name, email, role }
     const i = 0
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -33,23 +39,26 @@ const manageDoctor = () => {
         //     })
     }
 
-    const handleAddDoctor = async () => {
-        await axios.post(`http://localhost:5000/auth/register`, data)
-            .then(res => {
-                console.log(res)
-            })
-            .catch(err => {
-                console.log(err)
-            })
+    const handleAddDoctor = async (e) => {
+        e.preventDefault()
 
+        await axios.post("http://localhost:5000/auth/register", data).then((res) => {
+            console.log(res.data);
+            if (res.data.userExists) {
+                alert("User already exists");
+            } else {
+                alert("Registered Successfully");
+                navigate(0);
+            }
+        });
     }
+
+
 
     const handleSearchDoctor = async (e) => {
         e.preventDefault()
         setDoctor(document.getElementById('searchDoctor').value)
     }
-
-
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
@@ -121,6 +130,83 @@ const manageDoctor = () => {
                 </div>
 
                 {/* add doctor modal */}
+                {isAddDoctor && (
+                    <>
+                        <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 ">
+                            <div className="relative w-[27%] ">
+                                {/*content*/}
+                                <div className=" rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none border-0   ">
+                                    {/*header*/}
+                                    <div className="flex justify-center p-5  rounded-t border">
+                                        <h3 className="text-3xl font-semibold">Add Doctor</h3>
+                                    </div>
+
+                                    {/*body*/}
+                                    <div className="relative p-6 flex-auto ml-20">
+                                        <form
+                                            className=" p-[3%] justify-center flex-col shadow-none border-none  "
+                                            onSubmit={handleAddDoctor}
+                                        >
+
+                                            <div className="flex flex-col items-center my-4 rounded-md">
+                                                <input
+                                                    placeholder="Doctor ID"
+                                                    type="text"
+                                                    name="did"
+                                                    value={did}
+                                                    onChange={(e) => setDid(e.target.value)}
+                                                    className="border border-gray-500 rounded-[.3rem] w-full text-center shadow-md pointer text-lg flex  "
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="flex flex-col items-center my-4 rounded-md">
+                                                <input
+                                                    placeholder="Doctor Name"
+                                                    type="text"
+                                                    name="name"
+                                                    value={name}
+                                                    onChange={(e) => setName(e.target.value)}
+                                                    className="border border-gray-500 rounded-[.3rem] w-full text-center shadow-md pointer text-lg flex  "
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="flex flex-col items-center my-4 rounded-md">
+                                                <input
+                                                    placeholder="Doctor Email"
+                                                    type="text"
+                                                    name="email"
+                                                    value={email}
+                                                    onChange={(e) => setEmail(e.target.value)}
+                                                    className="border border-gray-500 rounded-[.3rem] w-full text-center shadow-md pointer text-lg flex  "
+                                                    required
+                                                />
+                                            </div>
+
+                                            <div className="flex items-center justify-end gap-4 rounded-b ">
+
+                                                <button
+                                                    className=" p-[1rem] px-[1.7rem]   bg-red-500 border shadow-md pointer text-xl flex hover:bg-white hover:text-red-500 "
+                                                    onClick={() => setIsAddDoctor(false)}
+                                                >
+                                                    Close
+                                                </button>
+
+                                                <button
+                                                    className=" p-[1rem] px-[1rem]  border bg-green-500  rounded-[.5rem] shadow-md pointer text-lg  hover:text-white "
+                                                    type="submit"
+                                                >
+                                                    Add
+                                                </button>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                    </>
+                )}
 
                 {/*  show data in table */}
                 <div>

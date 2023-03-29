@@ -101,7 +101,3 @@ section {
     padding: 2rem;
   }
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
