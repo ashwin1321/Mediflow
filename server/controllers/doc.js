@@ -18,17 +18,22 @@ exports.getDocController = async (req, res) => {
         }
 
         else {
+            try {
+                const query = `SELECT * FROM doctors WHERE name = $1`;
+                const value = [name];
 
-            const query = `SELECT * FROM doctors WHERE name = $1`;
-            const value = [name];
+                const result = await client.query(query, value);
 
-            const result = await client.query(query, value);
+                if (result.rows.length === 0) {
+                    return res.json({ error: "No such doctor found" });
+                }
 
-            if (result.rows.length === 0) {
-                return res.json({ error: "No such doctor found" });
+                return res.status(200).json({ result: result.rows });
+
+            } catch (error) {
+                res.status9(500).json({ error: error.message })
+
             }
-
-            return res.status(200).json({ result: result.rows });
 
         }
 
@@ -54,7 +59,7 @@ exports.deleteDocController = async (req, res) => {
         const result = await client.query(query, value);
 
         if (result.rows.length === 0) {
-            return res.json({ error: "No such doctor found" }).status(404)
+            return res.json({ error: "No such doctor found" })
         }
 
         return res.status(200).json({ message: "Doctor deleted successfully" });
