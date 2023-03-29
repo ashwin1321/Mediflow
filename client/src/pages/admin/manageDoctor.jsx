@@ -22,14 +22,15 @@ const manageDoctor = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [noDoctor, setNoDoctor] = useState(false)
 
-    const handleDeleteDoctor = async () => {
-        await axios.delete(`http://localhost:5000/get/doc`, did)
-            .then(res => {
-                console.log(res)
-            })
-            .catch(err => {
-                console.log(err)
-            })
+    const handleDeleteDoctor = async (did) => {
+        console.log(did)
+        // await axios.delete(`http://localhost:5000/get/doc`, did)
+        //     .then(res => {
+        //         console.log(res)
+        //     })
+        //     .catch(err => {
+        //         console.log(err)
+        //     })
     }
 
     const handleAddDoctor = async () => {
@@ -108,27 +109,21 @@ const manageDoctor = () => {
                                     </form>
                                 </div>
 
-                                {console.log(doctors)}
-
                                 <div className=''>
                                     <button className="bg-green-900 hover:bg-green-700 text-white py-3 mb-[11%] px-3 rounded-3 right-0"
                                         onClick={() => setIsAddDoctor(!isAddDoctor)}
                                     >Add Doctor</button>
                                 </div>
                             </div>
-
+                            {console.log(isAddDoctor)}
                         </div>
                     </div>
-
-
                 </div>
 
                 {/* add doctor modal */}
 
                 {/*  show data in table */}
-
                 <div>
-
                     {
                         noDoctor ? (
                             <h1 className="text-2xl text-center">No Doctor Found</h1>
