@@ -28,15 +28,26 @@ const manageDoctor = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [noDoctor, setNoDoctor] = useState(false)
 
-    const handleDeleteDoctor = async (did) => {
-        console.log(did)
-        // await axios.delete(`http://localhost:5000/get/doc`, did)
-        //     .then(res => {
-        //         console.log(res)
-        //     })
-        //     .catch(err => {
-        //         console.log(err)
-        //     })
+    const handleDeleteDoctor = async (id) => {
+
+        try {
+            await axios.delete(`http://localhost:5000/get/doc`, {
+                params: {
+                    id: id
+                }
+            }).then((res) => {
+                console.log(res.data);
+                if (res.data.error) {
+                    alert("Error deleting doctor");
+                } else {
+                    alert(res.data.message);
+                    navigate(0);
+                }
+            });
+        }
+        catch (error) {
+            console.log(error);
+        }
     }
 
     const handleAddDoctor = async (e) => {
@@ -52,7 +63,6 @@ const manageDoctor = () => {
             }
         });
     }
-
 
 
     const handleSearchDoctor = async (e) => {
