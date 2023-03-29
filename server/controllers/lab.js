@@ -10,7 +10,6 @@ exports.getLabController = async (req, res) => {
             const result = await client.query(query);
 
             return res.status(200).json({ result: result.rows });
-
         }
 
         else {
@@ -19,30 +18,26 @@ exports.getLabController = async (req, res) => {
             const value = [name];
 
             const result = await client.query(query, value);
-            console.log(result.rows)
 
-            if (result.rows === undefined || result.rows === null) {
-                return res.status(404).json({ error: "No such lab assistant found" });
+
+            if (result.rows.length === 0) {
+                return res.json({ error: "No such lab assistant found" });
             }
 
             return res.status(200).json({ result: result.rows });
 
         }
 
-
     } catch (err) {
         res.json({ error: err.message }).status(500);
 
     }
-
-
-
 }
 
 exports.deleteLabController = async (req, res) => {
 
     try {
-        const id = req.body.id;
+        const id = String(req.query.id);
         console.log(id)
 
         const query = `DELETE FROM lab WHERE lid = $1`;
@@ -50,14 +45,13 @@ exports.deleteLabController = async (req, res) => {
 
         const result = await client.query(query, value);
 
-        if (result.rows.length === 0) {
-            return res.json({ error: "No such lab assistant found" }).status(404)
+        if (result.rows.length != 0) {
+            return res.json({ error: "No such lab assistant found" })
         }
 
         return res.status(200).json({ message: "Lab Assistant deleted successfully" });
 
     } catch (err) {
         res.status(500).json({ error: err.message })
-
     }
 }
