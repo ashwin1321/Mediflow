@@ -5,8 +5,8 @@ require("dotenv").config();
 
 exports.getAppointments = async (req, res) => {
     try {
-        const { role } = req.body;
-        const id = req.params.id;
+        const role = req.query.role;
+        const id = req.query.id;
         console.log(id, role)
 
         if (role === "patient") {

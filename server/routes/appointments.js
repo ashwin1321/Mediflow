@@ -5,7 +5,7 @@ const router = express.Router();
 const { getAppointments, addAppointment, updateAppointment, deleteAppointment } = require("../controllers/appointments");
 
 
-router.route('/get-appointment/:id')
+router.route('/get-appointment')
     .get(getAppointments)
 
 router.route('/add-appointment')
