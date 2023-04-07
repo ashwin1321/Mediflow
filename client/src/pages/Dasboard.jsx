@@ -45,7 +45,7 @@ const Dasboard = () => {
                                                  <h2 className="text-2xl">Medical Records</h2>
                                           </li>
                                           <li className="sidebar-item">
-                                                 <Link to="/medical-records" className="sidebar-link">
+                                                 <Link to="/dashboard/viewAppointment" className="sidebar-link">
                                                         <i className="fas fa-notes-medical"></i>
                                                         <span>View Medical Records</span>
                                                  </Link>

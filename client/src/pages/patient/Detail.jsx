@@ -14,7 +14,7 @@ const detail = () => {
         axios.get(`http://localhost:5000/get/patients`,
             {
                 params: {
-                    pid: 'P84318'
+                    pid: pid
                 }
             }
         )
@@ -25,8 +25,6 @@ const detail = () => {
                 console.log(err)
             })
     }, [pid])
-
-    console.log(patient)
 
     return (
         <div className="dashboard-container" >

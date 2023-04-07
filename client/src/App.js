@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dasboard";
 import Detail from "./pages/patient/Detail";
 import ManageDoctor from "./pages/admin/manageDoctor";
 import ManageLab from "./pages/admin/manageLab";
+import ViewAppointment from "./pages/patient/viewAppointment";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
                 <Route path='/dashboard/detail' element={<Detail />} />
                 <Route path='/dashboard/manageDoc' element={<ManageDoctor />} />
                 <Route path='/dashboard/manageLab' element={<ManageLab />} />
+                <Route path='/dashboard/viewAppointment' element={<ViewAppointment />} />
 
             </Routes>
         </BrowserRouter>
