@@ -22,11 +22,12 @@ const Dasboard = () => {
                             <div className="sidebar">
                                    <ul className="sidebar-nav">
                                           <li className="sidebar-header">
-                                                 <h2>Patient Dashboard</h2>
+                                                 <h2 className="text-3xl">Patient Dashboard</h2>
                                           </li>
 
                                           <li className="sidebar-header">
-                                                 <h2>Appointments</h2>
+
+                                                 <h2 className="text-2xl">Appointments</h2>
                                           </li>
                                           <li className="sidebar-item">
                                                  <Link to="/dashboard/detail" className="sidebar-link">
@@ -34,14 +35,14 @@ const Dasboard = () => {
                                                         <span>Detail</span>
                                                  </Link>
                                           </li>
-                                          <li className="sidebar-item">
-                                                 <Link to="/book-appointment" className="sidebar-link">
+                                          <li className="sidebar-item mb-4">
+                                                 <Link to="/book" className="sidebar-link">
                                                         <i className="fas fa-plus-circle"></i>
                                                         <span>Book Appointment</span>
                                                  </Link>
                                           </li>
                                           <li className="sidebar-header">
-                                                 <h2>Medical Records</h2>
+                                                 <h2 className="text-2xl">Medical Records</h2>
                                           </li>
                                           <li className="sidebar-item">
                                                  <Link to="/medical-records" className="sidebar-link">

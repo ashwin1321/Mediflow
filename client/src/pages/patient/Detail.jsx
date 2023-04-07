@@ -35,20 +35,21 @@ const detail = () => {
                 <Dasboard />
             </div>
 
-            <div className="main-content">
+            <div className="main-content ">
 
                 {patient.map((patient) => (
-                    <div className="patient-detail" key={patient.pid}>
+                    <div className="patient-detail w-[100%] mt-10 ml-[-5%] h-[300px] px-4 flex  border border-green-8=600 border-4 " key={patient.pid}>
                         <div className="patient-detail-header">
-                            <h1>Personal Details</h1>
+                            <h1 className="text-5xl text-green-800 p-2 mt-5 underline">Personal Details</h1>
+                            <br />
 
-                            <div className="patient-detail-header-right">
-                                <h3>Name: {patient.name}</h3>
-                                <h3>PID: {patient.pid}</h3>
-                                <h3>Age: {patient.age}</h3>
-                                <h3>Phone: {patient.phone}</h3>
-                                <h3>Citizenship Number: {patient.citizenship}</h3>
-                                <h3>Email: {patient.email}</h3>
+                            <div className="patient-detail-header-right text-3xl">
+                                <h3 className='p-2'><span className=''>Name:</span>  {patient.name}</h3>
+                                <h3 className='p-2'>PID: {patient.pid}</h3>
+                                <h3 className='p-2'>Age: {patient.age}</h3>
+                                <h3 className='p-2'>Phone: {patient.phone}</h3>
+                                <h3 className='p-2'>Citizenship Number: {patient.citizenship}</h3>
+                                <h3 className='p-2'>Email: {patient.email}</h3>
 
 
 
