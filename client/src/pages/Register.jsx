@@ -33,7 +33,7 @@ const Register = () => {
     <Layout>
       <div className="form-container mb-4">
         <form onSubmit={handleSubmit}>
-          <h2>Sign Up</h2>
+          <h2 className="text-4xl">Sign Up</h2>
           <div className="form-group">
             <label htmlFor="email">Name:</label>
             <input

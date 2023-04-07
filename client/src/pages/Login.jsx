@@ -46,7 +46,7 @@ const Login = () => {
     <Layout>
       <div className="form-container mt-5">
         <form onSubmit={handleSubmit}>
-          <h2>Sign In</h2>
+          <h2 className="text-4xl">Sign In</h2>
           <div className="form-group">
             <label htmlFor="role">Role</label>
             <select

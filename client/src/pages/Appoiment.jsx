@@ -54,7 +54,7 @@ const Appoiment = () => {
     <Layout>
       <div className="form-container ">
         <form onSubmit={handleSubmit} className="my-4">
-          <h2>Make an appointment</h2>
+          <h2 className="text-4xl">Make an appointment</h2>
 
           <div className="form-group">
             <label htmlFor="phone">Phone number:</label>

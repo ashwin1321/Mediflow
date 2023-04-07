@@ -34,7 +34,7 @@ const Otp = () => {
     <Layout>
       <div className="form-container mt-5">
         <form onSubmit={handleSubmit}>
-          <h2>Verify OTP</h2>
+          <h2 className="text-4xl">Verify OTP</h2>
           <div className="form-group">
             <label htmlFor="otp">OTP</label>
             <input
