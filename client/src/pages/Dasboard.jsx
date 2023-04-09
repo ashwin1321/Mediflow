@@ -9,51 +9,49 @@ const Dasboard = () => {
        if (role === "patient") {
               return (
                      <div className="dashboard-container">
-                            <nav className="navbar">
-                                   <h1 className="navbar-brand">Patient Dashboard</h1>
-                                   <ul className="navbar-nav">
-                                          <li className="nav-item">
-                                                 <Link to="/" className="navbar-brand">
-                                                        Logout
-                                                 </Link>
-                                          </li>
-                                   </ul>
-                            </nav>
                             <div className="sidebar">
                                    <ul className="sidebar-nav">
                                           <li className="sidebar-header">
-                                                 <h2 className="text-3xl">Patient Dashboard</h2>
+                                                 <h2 className="text-4xl mt-4 mb-4">Patient Dashboard</h2>
+                                                 <hr />
                                           </li>
 
-                                          <li className="sidebar-header">
+                                          <li className="sidebar-header mt-9">
 
-                                                 <h2 className="text-2xl">Appointments</h2>
+                                                 <h2 className="text-3xl">Appointments</h2>
                                           </li>
                                           <li className="sidebar-item">
                                                  <Link to="/dashboard/detail" className="sidebar-link">
-                                                        <i className="fas fa-calendar-alt"></i>
+                                                        <i className="fas fa-calendar-alt"></i>&nbsp;
                                                         <span>Detail</span>
                                                  </Link>
                                           </li>
                                           <li className="sidebar-item mb-4">
-                                                 <Link to="/book" className="sidebar-link">
-                                                        <i className="fas fa-plus-circle"></i>
+                                                 <Link to="/book" className="sidebar-link ">
+                                                        <i className="fas fa-plus-circle "></i> &nbsp;
                                                         <span>Book Appointment</span>
                                                  </Link>
                                           </li>
                                           <li className="sidebar-header">
-                                                 <h2 className="text-2xl">Medical Records</h2>
+                                                 <h2 className="text-3xl">Medical Records</h2>
                                           </li>
                                           <li className="sidebar-item">
                                                  <Link to="/dashboard/viewAppointment" className="sidebar-link">
-                                                        <i className="fas fa-notes-medical"></i>
-                                                        <span>View Medical Records</span>
+                                                        <i className="fas fa-notes-medical"></i>&nbsp;
+                                                        <span>View Appointment</span>
                                                  </Link>
                                           </li>
                                           <li className="sidebar-item">
-                                                 <Link to="/upload-medical-record" className="sidebar-link">
-                                                        <i className="fas fa-file-upload"></i>
-                                                        <span>Upload Medical Record</span>
+                                                 <Link to="reports" className="sidebar-link">
+                                                        <i className="fas fa-file-medical-alt"></i>&nbsp;
+                                                        <span>View Medical Reports</span>
+                                                 </Link>
+                                          </li>
+                                          {/* <br /> */}
+                                          <li className="sidebar-item">
+                                                 <Link to="/">
+                                                        <i className="fas fa-sign-out-alt"></i>&nbsp;
+                                                        <span>Logout</span>
                                                  </Link>
                                           </li>
                                    </ul>
@@ -64,16 +62,6 @@ const Dasboard = () => {
        } else if (role === "doctor") {
               return (
                      <div className="dashboard-container">
-                            <nav className="navbar">
-                                   <h1 className="navbar-brand">Doctor Dashboard</h1>
-                                   <ul className="navbar-nav">
-                                          <li className="nav-item">
-                                                 <Link to="/" className="navbar-brand">
-                                                        Logout
-                                                 </Link>
-                                          </li>
-                                   </ul>
-                            </nav>
                             <div className="sidebar">
                                    <ul className="sidebar-nav">
                                           <li className="sidebar-header">
@@ -85,13 +73,13 @@ const Dasboard = () => {
                                           </li>
                                           <li className="sidebar-item">
                                                  <Link to="/patients" className="sidebar-link">
-                                                        <i className="fas fa-user-injured"></i>
+                                                        <i className="fas fa-user-injured"></i>&nbsp;
                                                         <span>View Patients</span>
                                                  </Link>
                                           </li>
                                           <li className="sidebar-item">
                                                  <Link to="/add-patient" className="sidebar-link">
-                                                        <i className="fas fa-user-plus"></i>
+                                                        <i className="fas fa-user-plus"></i>&nbsp;
                                                         <span>Add Patient</span>
                                                  </Link>
                                           </li>
@@ -100,14 +88,17 @@ const Dasboard = () => {
                                           </li>
                                           <li className="sidebar-item">
                                                  <Link to="/appointments" className="sidebar-link">
-                                                        <i className="fas fa-calendar-alt"></i>
+                                                        <i className="fas fa-calendar-alt"></i>&nbsp;
                                                         <span>View Appointments</span>
                                                  </Link>
                                           </li>
+
+
+
                                           <li className="sidebar-item">
-                                                 <Link to="/add-appointment" className="sidebar-link">
-                                                        <i className="fas fa-plus-circle"></i>
-                                                        <span>Add Appointment</span>
+                                                 <Link to="/">
+                                                        <i className="fas fa-sign-out-alt"></i>&nbsp;
+                                                        <span>Logout</span>
                                                  </Link>
                                           </li>
                                    </ul>
@@ -138,20 +129,26 @@ const Dasboard = () => {
                                           </li>
                                           <li className="sidebar-item">
                                                  <Link to="/patients" className="sidebar-link">
-                                                        <i className="fas fa-user-injured"></i>
+                                                        <i className="fas fa-user-injured"></i>&nbsp;
                                                         <span>Patients</span>
                                                  </Link>
                                           </li>
                                           <li className="sidebar-item">
                                                  <Link to="/tests" className="sidebar-link">
-                                                        <i className="fas fa-vial"></i>
+                                                        <i className="fas fa-vial"></i>&nbsp;
                                                         <span>Tests</span>
                                                  </Link>
                                           </li>
                                           <li className="sidebar-item">
                                                  <Link to="/results" className="sidebar-link">
-                                                        <i className="fas fa-file-medical"></i>
+                                                        <i className="fas fa-file-medical"></i>&nbsp;
                                                         <span>Results</span>
+                                                 </Link>
+                                          </li>
+                                          <li className="sidebar-item">
+                                                 <Link to="/">
+                                                        <i className="fas fa-sign-out-alt"></i>&nbsp;
+                                                        <span>Logout</span>
                                                  </Link>
                                           </li>
                                    </ul>
@@ -183,20 +180,21 @@ const Dasboard = () => {
                                           </li>
                                           <li className="sidebar-item">
                                                  <Link to="/dashboard/manageDoc" className="sidebar-link">
-                                                        <i className="fas fa-user-injured"></i>
+                                                        <i className="fas fa-user-injured"></i>&nbsp;
                                                         <span>Doctors</span>
                                                  </Link>
                                           </li>
 
                                           <li className="sidebar-item">
                                                  <Link to="/dashboard/manageLab" className="sidebar-link">
-                                                        <i className="fas fa-user-md"></i>
+                                                        <i className="fas fa-user-md"></i>&nbsp;
                                                         <span>Lab Assistant</span>
                                                  </Link>
                                           </li>
 
                                           <li className="sidebar-item">
-                                                 <Link to="/" className="sidebar-link">
+                                                 <Link to="/">
+                                                        <i className="fas fa-sign-out-alt"></i>&nbsp;
                                                         <span>Logout</span>
                                                  </Link>
                                           </li>
