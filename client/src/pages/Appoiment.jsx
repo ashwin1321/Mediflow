@@ -39,11 +39,12 @@ const Appoiment = () => {
     axios
       .post("http://localhost:5000/appointments/add-appointment", data)
       .then((res) => {
+        console.log(res.data)
         if (res.data.booked) {
           alert("Appointment booked successfully");
           navigate("/dashboard");
         } else {
-          alert("Something went wrong");
+          alert(res.data.error);
         }
       })
       .catch((err) => {

@@ -7,6 +7,7 @@ exports.getAppointments = async (req, res) => {
     try {
         const role = req.query.role;
         const id = req.query.id;
+        const email = req.query.email;
         console.log(id, role)
 
         if (role === "patient") {
@@ -60,13 +61,13 @@ exports.addAppointment = async (req, res) => {
     try {
 
         const { pid, did, date, time, remarks, phonenumber, email } = req.body;
-
+        console.log(req.body)
 
         const query = `insert into appointments(pid, did, date, time, remarks, phonenumber) values($1, $2, $3, $4, $5, $6)`;
         const values = [pid, did, date, time, remarks, phonenumber];
 
         const result = await client.query(query, values)
-
+        console.log(`dgs`)
         if (result) {
             let mailTransporter = nodemailer.createTransport({
                 service: 'Outlook365',
@@ -95,7 +96,7 @@ exports.addAppointment = async (req, res) => {
 
     } catch (error) {
         res.status(500).json({
-            error: err.message
+            error: error.message
         })
 
     }
@@ -151,7 +152,7 @@ exports.deleteAppointment = async (req, res) => {
 
     try {
 
-        const id = req.query;
+        const id = req.query.id;
 
         const query = `delete from appointments where aid = $1`;
         const values = [id];

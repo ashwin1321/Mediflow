@@ -179,6 +179,8 @@ exports.loginController = async (req, res) => {
 
             const id = result.rows[0].pid
             const role = result.rows[0].role
+            const mail = result.rows[0].email
+            console.log(mail)
 
             let mailTransporter = nodemailer.createTransport({
                 service: 'Outlook365',
@@ -200,7 +202,7 @@ exports.loginController = async (req, res) => {
             const sent = mailTransporter.sendMail(mailDetails)
             if (sent) {
 
-                res.status(200).json({ otpSend: "OTP sent to your email", id, role });
+                res.status(200).json({ otpSend: "OTP sent to your email", id, role, mail });
             }
             else {
                 res.json({ error: "Error in sending email" });

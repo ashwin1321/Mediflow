@@ -18,6 +18,7 @@ const Login = () => {
     e.preventDefault();
 
     axios.post("http://localhost:5000/auth/login", data).then((res) => {
+      console.log(res.data)
       if (res.data.noUser) {
         alert("User does not exist");
         return;

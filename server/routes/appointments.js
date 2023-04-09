@@ -11,7 +11,7 @@ router.route('/get-appointment')
 router.route('/add-appointment')
     .post(addAppointment)
 
-router.route('action/:id')
+router.route('/action')
     .patch(updateAppointment)
     .delete(deleteAppointment)
 
