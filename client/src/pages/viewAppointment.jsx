@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Dasboard from '../Dasboard'
+import Dasboard from './Dasboard'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import { Link } from 'react-router-dom'
@@ -68,9 +68,11 @@ const viewAppointment = () => {
                 <div className='' >
                     <div className="p-4 flex flex-row shadow ml-[-6.2%] justify-between items-center  ">
                         <h1 className='text-4xl text-center text-[#328059]'>View Appointments</h1>
-                        <Link to="/book">
-                            <button className='bg-[#3b7a5b] hover:text-[#328059]  hover:bg-[#e4ece8]'>Book Now </button>
-                        </Link>
+                        {role === 'patient' ?
+                            <Link to="/book">
+                                <button className='bg-[#3b7a5b] hover:text-[#328059]  hover:bg-[#e4ece8]'>Book Now </button>
+                            </Link>
+                            : null}
                     </div>
 
                 </div>
@@ -78,14 +80,16 @@ const viewAppointment = () => {
                     <div className="appointment-container mt-20 ml-[-6.2%] ">
                         <table className='table-auto text-3xl w-full'>
                             <thead>
-                                <tr className='border-2 text-center bg-green-300'>
+                                <tr className='border-2 text-center bg-[#23c28d]'>
                                     <th className='border-2 px-4 py-2'>S.N</th>
                                     <th className='border-2 px-4 py-2'>Date</th>
                                     <th className='px-4 border-2 py-2'>Aid</th>
                                     <th className='px-4 border-2 py-2'>Time</th>
                                     <th className='px-4 border-2 py-2'>Doctor Id</th>
                                     <th className='px-4 border-2 py-2'>Remarks</th>
-                                    < th className='px-4 border-2 py-2'>Action</th>
+                                    {role === 'patient' ?
+                                        < th className='px-4 border-2 py-2'>Action</th>
+                                        : null}
 
                                 </tr>
                             </thead>
@@ -99,11 +103,13 @@ const viewAppointment = () => {
                                             <td className='border-2 px-4 py-2'>{data.time}</td>
                                             <td className='border-2 px-4 py-2'>{data.did}</td>
                                             <td className='border-2 px-4 py-2'>{data.remarks}</td>
-                                            <td className='border-2 px-4 py-2 text-red-700 cursor-pointer'
-                                                onClick={() => deleteAppointment(data.aid)}
-                                            >
-                                                <i className="fas fa-trash"></i>
-                                            </td>
+                                            {role === 'patient' ?
+                                                <td className='border-2 px-4 py-2 text-red-700 cursor-pointer'
+                                                    onClick={() => deleteAppointment(data.aid)}
+                                                >
+                                                    <i className="fas fa-trash"></i>
+                                                </td>
+                                                : null}
 
                                         </tr>
                                     )

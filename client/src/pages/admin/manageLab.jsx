@@ -117,18 +117,14 @@ const manageLab = () => {
                                             id='searchLab'
                                         />
 
-                                        <button type="submit" className="bg-green-900 hover:bg-green-700 text-white font-bold py-4 mb-[5%] w-4   rounded-3 right-0"
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mx-[-5px]">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                                            </svg>
-
+                                        <button className=" bg-[#328059] hover:text-[#328059] hover:bg-[#d4f0e2] py-2.5 mb-[5%] w-[20%] rounded-3 right-0">
+                                            Search
                                         </button>
                                     </form>
                                 </div>
 
                                 <div className=''>
-                                    <button className="bg-green-900 hover:bg-green-700 text-white py-3 mb-[11%] px-3 rounded-3 right-0"
+                                    <button className="bg-[#328059] hover:bg-[#112c01]  text-white py-3 mb-[11%] px-3 rounded-3 right-0"
                                         onClick={() => setIsAddLab(!isAddLab)}
                                     >Add Lab Assistant</button>
                                 </div>
@@ -146,7 +142,7 @@ const manageLab = () => {
                                 <div className=" rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none border-0   ">
                                     {/*header*/}
                                     <div className="flex justify-center p-5  rounded-t border">
-                                        <h3 className="text-3xl font-semibold">Add Doctor</h3>
+                                        <h3 className="text-3xl font-semibold">Add Lab Assistant</h3>
                                     </div>
 
                                     {/*body*/}
@@ -158,7 +154,7 @@ const manageLab = () => {
 
                                             <div className="flex flex-col items-center my-4 rounded-md">
                                                 <input
-                                                    placeholder="Doctor ID"
+                                                    placeholder="Lab Assitant ID"
                                                     type="text"
                                                     name="did"
                                                     value={lid}
@@ -169,7 +165,7 @@ const manageLab = () => {
                                             </div>
                                             <div className="flex flex-col items-center my-4 rounded-md">
                                                 <input
-                                                    placeholder="Doctor Name"
+                                                    placeholder="Lab Assistant Name"
                                                     type="text"
                                                     name="name"
                                                     value={name}
@@ -180,7 +176,7 @@ const manageLab = () => {
                                             </div>
                                             <div className="flex flex-col items-center my-4 rounded-md">
                                                 <input
-                                                    placeholder="Doctor Email"
+                                                    placeholder=" Email"
                                                     type="text"
                                                     name="email"
                                                     value={email}

@@ -114,22 +114,18 @@ const manageDoctor = () => {
                                 <div className=''>
 
                                     <form className='border-none shadow-none flex flex-row gap-3 ' onSubmit={(e) => handleSearchDoctor(e)}>
-                                        <input type="text" placeholder="Search Doctor" className="border-2 border-gray-300 bg-white rounded-lg text-xl focus:outline-none"
+                                        <input type="text" placeholder="Search Doctor" className="border-2  border-gray-300 bg-white rounded-lg text-xl focus:outline-none"
                                             id='searchDoctor'
                                         />
 
-                                        <button type="submit" className="bg-green-900 hover:bg-green-700 text-white font-bold py-4 mb-[5%] w-4   rounded-3 right-0"
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mx-[-5px]">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                                            </svg>
-
+                                        <button className=" bg-[#328059] hover:text-[#328059] hover:bg-[#d4f0e2] py-2.5 mb-[5%] w-[20%] rounded-3 right-0">
+                                            Search
                                         </button>
                                     </form>
                                 </div>
 
                                 <div className=''>
-                                    <button className="bg-green-900 hover:bg-green-700 text-white py-3 mb-[11%] px-3 rounded-3 right-0"
+                                    <button className="bg-[#328059] hover:bg-[#112c01]  text-white py-3 mb-[11%] px-3 rounded-3 right-0"
                                         onClick={() => setIsAddDoctor(!isAddDoctor)}
                                     >Add Doctor</button>
                                 </div>

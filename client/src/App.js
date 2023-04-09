@@ -10,7 +10,7 @@ import Dashboard from "./pages/Dasboard";
 import Detail from "./pages/patient/Detail";
 import ManageDoctor from "./pages/admin/manageDoctor";
 import ManageLab from "./pages/admin/manageLab";
-import ViewAppointment from "./pages/patient/viewAppointment";
+import ViewAppointment from "./pages/viewAppointment";
 
 
 function App() {

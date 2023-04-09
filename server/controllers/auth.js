@@ -17,7 +17,7 @@ exports.loginController = async (req, res) => {
 
         if (role === "doctor") {
 
-            const query = `SELECT * FROM ${ro} WHERE email = $1`;
+            const query = `SELECT * FROM doctors WHERE email = $1`;
             const values = [email];
 
             const result = await client.query(query, values);

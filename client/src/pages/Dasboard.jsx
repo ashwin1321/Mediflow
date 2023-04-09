@@ -65,29 +65,30 @@ const Dasboard = () => {
                             <div className="sidebar">
                                    <ul className="sidebar-nav">
                                           <li className="sidebar-header">
-                                                 <h2>Dr. Dashboard</h2>
+                                                 <h2 className="text-4xl mt-4 mb-4">Doctor Dashboard</h2>
+                                                 <hr />
                                           </li>
 
                                           <li className="sidebar-header">
-                                                 <h2>Patients</h2>
+                                                 <h2 className="text-3xl mt-4">Patients</h2>
                                           </li>
                                           <li className="sidebar-item">
                                                  <Link to="/patients" className="sidebar-link">
                                                         <i className="fas fa-user-injured"></i>&nbsp;
-                                                        <span>View Patients</span>
+                                                        <span>Diagonosis</span>
                                                  </Link>
                                           </li>
                                           <li className="sidebar-item">
                                                  <Link to="/add-patient" className="sidebar-link">
                                                         <i className="fas fa-user-plus"></i>&nbsp;
-                                                        <span>Add Patient</span>
+                                                        <span>View Reports</span>
                                                  </Link>
                                           </li>
                                           <li className="sidebar-header">
-                                                 <h2>Appointments</h2>
+                                                 <h2 className="text-3xl mt-4">Appointments</h2>
                                           </li>
                                           <li className="sidebar-item">
-                                                 <Link to="/appointments" className="sidebar-link">
+                                                 <Link to="/dashboard/viewAppointment" className="sidebar-link">
                                                         <i className="fas fa-calendar-alt"></i>&nbsp;
                                                         <span>View Appointments</span>
                                                  </Link>
@@ -108,20 +109,12 @@ const Dasboard = () => {
        } else if (role === "lab") {
               return (
                      <div className="dashboard-container">
-                            <nav className="navbar">
-                                   <h1 className="navbar-brand">Lab Dashboard</h1>
-                                   <ul className="navbar-nav">
-                                          <li className="nav-item">
-                                                 <Link to="/" className="navbar-brand">
-                                                        Logout
-                                                 </Link>
-                                          </li>
-                                   </ul>
-                            </nav>
+
                             <div className="sidebar">
                                    <ul className="sidebar-nav">
                                           <li className="sidebar-header">
-                                                 <h2>Lab Dashboard</h2>
+                                                 <h2 className="text-4xl mt-4 mb-4">Lab Dashboard</h2>
+                                                 <hr />
                                           </li>
 
                                           <li className="sidebar-header">
@@ -159,24 +152,16 @@ const Dasboard = () => {
        } else if (role === "admin") {
               return (
                      <div className="dashboard-container">
-                            <nav className="navbar">
-                                   <h1 className="navbar-brand">Hospital Dashboard</h1>
-                                   <ul className="navbar-nav">
-                                          <li className="nav-item">
-                                                 <Link to="/" className="navbar-brand">
-                                                        Logout
-                                                 </Link>
-                                          </li>
-                                   </ul>
-                            </nav>
+
                             <div className="sidebar">
                                    <ul className="sidebar-nav">
                                           <li className="sidebar-header">
-                                                 <h2>Admin Dashboard</h2>
+                                                 <h2 className="text-4xl mt-4 mb-4">Admin Dashboard</h2>
+                                                 <hr />
                                           </li>
 
                                           <li className="sidebar-header">
-                                                 <h2>Manage</h2>
+                                                 <h2 className="text-3xl mt-4">Manage</h2>
                                           </li>
                                           <li className="sidebar-item">
                                                  <Link to="/dashboard/manageDoc" className="sidebar-link">
@@ -188,7 +173,7 @@ const Dasboard = () => {
                                           <li className="sidebar-item">
                                                  <Link to="/dashboard/manageLab" className="sidebar-link">
                                                         <i className="fas fa-user-md"></i>&nbsp;
-                                                        <span>Lab Assistant</span>
+                                                        <span>Lab Assistants</span>
                                                  </Link>
                                           </li>
 
