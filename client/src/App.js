@@ -11,6 +11,7 @@ import Detail from "./pages/patient/Detail";
 import ManageDoctor from "./pages/admin/manageDoctor";
 import ManageLab from "./pages/admin/manageLab";
 import ViewAppointment from "./pages/viewAppointment";
+import Diagnosis from "./pages/doc/Diagonosis";
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
                 <Route path='/dashboard/manageDoc' element={<ManageDoctor />} />
                 <Route path='/dashboard/manageLab' element={<ManageLab />} />
                 <Route path='/dashboard/viewAppointment' element={<ViewAppointment />} />
+                <Route path="*" element={<h1>404 Not Found</h1>} />
+                <Route path="/dashboard/diagnosis" element={< Diagnosis />} />
 
             </Routes>
         </BrowserRouter>
