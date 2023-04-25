@@ -1,7 +1,8 @@
 import Layout from "../pages/Layout";
 import React, { useState } from "react";
-import { bookImg } from "../assets/Homepage";
 import "../styles/Appointment.css";
+import Khalti from "../pages/Khalti"; // import your Khalti component
+
 import Cookies from "js-cookie";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -47,7 +48,7 @@ const Appoiment = () => {
           alert(res.data.error);
         }
       })
-      .catch((err) => {
+      .catch(() => {
         alert("Something went wrong");
       });
   };
@@ -160,14 +161,15 @@ const Appoiment = () => {
           <div className="form-group">
             <label htmlFor="paymentMethod">Payment method:</label>
             <select
-              id="paymentMethod"
-              value={paymentMethod}
-              onChange={(event) => setPaymentMethod(event.target.value)}
+                id="paymentMethod"
+                value={paymentMethod}
+                onChange={(event) => setPaymentMethod(event.target.value)}
             >
-              <option value="esewa">eSewa</option>
-              <option value="creditCard">Cash</option>
-              <option value="debitCard">Khalti</option>
+              <option value="cash">Cash</option>
+              <option value="Khalti">Khalti</option>
             </select>
+            {paymentMethod === "Khalti" && <Khalti />}
+
           </div>
 
           <button type="submit">Submit</button>
