@@ -73,9 +73,9 @@ const Dasboard = () => {
                                                  <h2 className="text-3xl mt-4">Patients</h2>
                                           </li>
                                           <li className="sidebar-item">
-                                                 <Link to="/patients" className="sidebar-link">
+                                                 <Link to="/dashboard/diagnosis" className="sidebar-link">
                                                         <i className="fas fa-user-injured"></i>&nbsp;
-                                                        <span>Diagonosis</span>
+                                                        <span>Test and Diagnosis</span>
                                                  </Link>
                                           </li>
                                           <li className="sidebar-item">
