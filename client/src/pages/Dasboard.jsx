@@ -79,7 +79,7 @@ const Dasboard = () => {
                                                  </Link>
                                           </li>
                                           <li className="sidebar-item">
-                                                 <Link to="/add-patient" className="sidebar-link">
+                                                 <Link to="/dashboard/report" className="sidebar-link">
                                                         <i className="fas fa-user-plus"></i>&nbsp;
                                                         <span>View Reports</span>
                                                  </Link>

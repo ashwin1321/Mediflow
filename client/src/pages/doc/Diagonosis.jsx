@@ -13,16 +13,18 @@ const Diagonosis = () => {
     const [symptoms, setSymptoms] = useState('')
     const [test, setTest] = useState('')
     const [report, setReport] = useState([])
+    const [date, setDate] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(name)
     }
 
-    const data = { pid, pname, symptoms, test }
+    const data = { pid, pname, symptoms, test, date }
 
     const handleCreateTest = (e) => {
         e.preventDefault()
+        console.log(data)
         // api milaunu xa
         axios.post('http://localhost:5000/api/report', { data })
             .then((res) => {
@@ -40,7 +42,6 @@ const Diagonosis = () => {
             <div>
                 <Dasboard />
             </div>
-
             <div className="main-content mt-[-0.5%] ">
                 <div className='' >
                     <div className="p-4 flex flex-row shadow ml-[-6.2%] justify-between items-center  ">
@@ -88,6 +89,18 @@ const Diagonosis = () => {
                                             onSubmit={handleCreateTest}
                                         >
 
+                                            <div className="flex flex-row w-full justify-between items-center my-4 rounded-md">
+                                                <p className='text-3xl w-[30%] '>Date:</p>
+                                                <input
+                                                    placeholder="Patient ID"
+                                                    type="date"
+                                                    name="date"
+                                                    value={date}
+                                                    onChange={(e) => setDate(e.target.value)}
+                                                    className="border justify-center border-gray-500 rounded-[.3rem] w-full text-center shadow-md pointer text-xl flex  "
+                                                    required
+                                                />
+                                            </div>
                                             <div className="flex flex-row w-full justify-between items-center my-4 rounded-md">
                                                 <p className='text-3xl w-[30%] '>Patient Id:</p>
                                                 <input
@@ -240,6 +253,12 @@ const Diagonosis = () => {
                 )}
 
 
+                <div className='text-4xl text-green-700 m-[400px] '>
+                    Create patient report and assign test to patients.
+                    <br />  <br />
+                    &emsp; &emsp;
+                    Click the  button above to create report.
+                </div>
             </div>
         </div>
     )
