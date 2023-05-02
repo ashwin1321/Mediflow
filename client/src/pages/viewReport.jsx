@@ -8,7 +8,7 @@ const viewReport = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [search, setSearch] = useState('')
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [isReportEmpty, setIsReportEmpty] = useState(false)
+    const [isReportEmpty, setIsReportEmpty] = useState(true)
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [report, setReport] = useState([])
     // eslint-disable-next-line react-hooks/rules-of-hooks
