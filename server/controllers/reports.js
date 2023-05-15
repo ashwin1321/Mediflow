@@ -7,7 +7,7 @@ exports.getReports = async (req, res) => {
     try {
         const id = req.query.search;
 
-        const query = "SELECT * FROM reports WHERE pid = $1";
+        const query = "SELECT * FROM reports WHERE pid = $1 order by id";
         const values = [id];
 
         await client.query(query, values, (err, result) => {
