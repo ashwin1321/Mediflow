@@ -39,7 +39,7 @@ app.use("/get", getDoc)
 app.post("/upload", upload.single("file"), postReport); // make in controller
 app.put("/update", upload.single("file"), updateReport); // make in controller
 app.put("/updated", updateReportd); // make in controller
-app.get("/download", downloadReport)
+app.get("/download/:id", downloadReport)
 app.use("/reports", PatientReport);
 app.use("/appointments", Appointments);
 

@@ -30,13 +30,11 @@ exports.getReports = async (req, res) => {
 }
 
 exports.downloadReport = async (req, res) => {
-    const fileId = req.query.id;
-    const query = "SELECT * FROM patient_data WHERE pid = $1";
+    const fileId = req.params.id;
+    const query = "SELECT * FROM reports WHERE id = $1";
     const values = [fileId];
 
-    await client.query(query, values, (err, result) => {
-
-        // console.log(result.rows)
+    client.query(query, values, (err, result) => {
         if (err) {
             console.error(err);
             res.status(500).send("Error downloading file");
