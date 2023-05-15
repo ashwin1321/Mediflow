@@ -6,6 +6,7 @@ import axios from "axios";
 
 const viewReport = () => {
     const role = Cookies.get("role");
+    const pid = Cookies.get("id");
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [search, setSearch] = useState("");
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -20,6 +21,7 @@ const viewReport = () => {
     const [diagnosis, setDiagnosis] = useState("");
 
 
+
     const handleDownloadReport = (e) => {
         e.preventDefault();
         console.log(diagnosis);
@@ -27,7 +29,6 @@ const viewReport = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(search);
         axios
             .get(`http://localhost:5000/reports/view-report`, {
                 params: { search: search },
@@ -56,6 +57,7 @@ const viewReport = () => {
         setIsEditReport(true);
         setSelectedData(data);
     };
+
 
     return (
         <div className="dashboard-container">

@@ -42,7 +42,7 @@ const Dasboard = () => {
                                                  </Link>
                                           </li>
                                           <li className="sidebar-item">
-                                                 <Link to="reports" className="sidebar-link">
+                                                 <Link to="/dashboard/report/patient" className="sidebar-link">
                                                         <i className="fas fa-file-medical-alt"></i>&nbsp;
                                                         <span>View Medical Reports</span>
                                                  </Link>

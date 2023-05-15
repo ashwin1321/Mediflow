@@ -13,6 +13,7 @@ import ManageLab from "./pages/admin/manageLab";
 import ViewAppointment from "./pages/viewAppointment";
 import Diagnosis from "./pages/doc/Diagonosis";
 import ViewReport from "./pages/viewReport";
+import Report from "./pages/patient/reports";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                 <Route path="*" element={<h1>404 Not Found</h1>} />
                 <Route path="/dashboard/diagnosis" element={< Diagnosis />} />
                 <Route path="/dashboard/report" element={< ViewReport />} />
+                <Route path="/dashboard/report/patient" element={< Report />} />
 
             </Routes>
         </BrowserRouter>
