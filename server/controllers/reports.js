@@ -1,6 +1,7 @@
 // controller to create read and delete routes
 const { connectDb, client } = require("../config/db");
 const fs = require("fs");
+const path = require("path");
 
 
 exports.getReports = async (req, res) => {
@@ -58,7 +59,6 @@ exports.downloadReport = async (req, res) => {
     });
 }
 
-
 exports.postReport = async (req, res) => {
 
     try {
@@ -86,12 +86,15 @@ exports.updateReport = async (req, res) => {
 
     try {
         const { filename, mimetype, size } = req.file;
+        const { pid } = req.body;
+        console.log(req.file, pid)
         const data = fs.readFileSync(path.join("uploads/", filename));
+
         const query =
-            "UPDATE reports SET file_name = $5, mime_type = $6, data = $7 WHERE pid = $8";
+            "UPDATE reports SET file_name = $1, mime_type = $2, data = $3 WHERE id = $4";
         const values = [filename, mimetype, data, pid]
 
-        await client.query(query, values, (err, result) => {
+        client.query(query, values, (err, result) => {
             if (err) {
                 console.error(err);
                 res.status(500).json({ error: "Internal server error" });
@@ -106,6 +109,7 @@ exports.updateReport = async (req, res) => {
     }
 
     catch (error) {
+        console.log(error)
         res.status(500).json({ error: "Internal server error" });
 
     }

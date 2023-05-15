@@ -37,7 +37,7 @@ app.use("/auth", userAuth);
 // app.use(validateToken());
 app.use("/get", getDoc)
 app.post("/upload", upload.single("file"), postReport); // make in controller
-app.patch("/update", upload.single("file"), updateReport); // make in controller
+app.put("/update", upload.single("file"), updateReport); // make in controller
 app.put("/updated", updateReportd); // make in controller
 app.get("/download", downloadReport)
 app.use("/reports", PatientReport);

@@ -122,7 +122,7 @@ const Dasboard = () => {
                                           </li>
 
                                           <li className="sidebar-item">
-                                                 <Link to="/dashboard/report" className="sidebar-link">
+                                                 <Link to="/dashboard/report/lab" className="sidebar-link">
                                                         <i className="fas fa-vial"></i>&nbsp;
                                                         <span>Upload and Reports</span>
                                                  </Link>
