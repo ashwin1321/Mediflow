@@ -118,26 +118,16 @@ const Dasboard = () => {
                                           </li>
 
                                           <li className="sidebar-header">
-                                                 <h2>Manage</h2>
+                                                 <h2 className="text-4xl mt-4">Manage</h2>
                                           </li>
+
                                           <li className="sidebar-item">
-                                                 <Link to="/patients" className="sidebar-link">
-                                                        <i className="fas fa-user-injured"></i>&nbsp;
-                                                        <span>Patients</span>
-                                                 </Link>
-                                          </li>
-                                          <li className="sidebar-item">
-                                                 <Link to="/tests" className="sidebar-link">
+                                                 <Link to="/dashboard/report" className="sidebar-link">
                                                         <i className="fas fa-vial"></i>&nbsp;
-                                                        <span>Tests</span>
+                                                        <span>Upload and Reports</span>
                                                  </Link>
                                           </li>
-                                          <li className="sidebar-item">
-                                                 <Link to="/results" className="sidebar-link">
-                                                        <i className="fas fa-file-medical"></i>&nbsp;
-                                                        <span>Results</span>
-                                                 </Link>
-                                          </li>
+
                                           <li className="sidebar-item">
                                                  <Link to="/">
                                                         <i className="fas fa-sign-out-alt"></i>&nbsp;
