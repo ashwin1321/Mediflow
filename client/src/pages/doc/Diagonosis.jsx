@@ -20,13 +20,13 @@ const Diagonosis = () => {
         console.log(name)
     }
 
-    const data = { pid, pname, symptoms, test, date }
+    const data = { pid, patient_name: pname, symptoms, test, date }
 
     const handleCreateTest = (e) => {
         e.preventDefault()
         console.log(data)
         // api milaunu xa
-        axios.post('http://localhost:5000/api/report', { data })
+        axios.post('http://localhost:5000/upload', { data })
             .then((res) => {
                 alert('Report created')
                 console.log(res)

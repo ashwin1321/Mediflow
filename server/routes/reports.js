@@ -5,7 +5,7 @@ const router = express.Router();
 
 const { getReports } = require("../controllers/reports");
 
-router.route("/view-report/:id")
+router.route("/view-report")
     .get(getReports);
 
 module.exports = router;
