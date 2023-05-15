@@ -20,11 +20,20 @@ const viewReport = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [diagnosis, setDiagnosis] = useState("");
 
-
-
-    const handleDownloadReport = (e) => {
-        e.preventDefault();
-        console.log(diagnosis);
+    const handleDownloadReport = (id, file_name) => {
+        console.log(id)
+        axios.get(`http://localhost:5000/download/${id}`, {
+            responseType: "blob",
+        })
+            .then((res) => {
+                const url = window.URL.createObjectURL(new Blob([res.data]));
+                const link = document.createElement("a");
+                link.href = url;
+                link.setAttribute("download", file_name);
+                document.body.appendChild(link);
+                link.click();
+            })
+            .catch((err) => console.log(err))
     }
 
     const handleSubmit = (e) => {
@@ -123,16 +132,17 @@ const viewReport = () => {
                                             <td className="border-2 px-4 py-2">{data.symptoms}</td>
                                             <td className="border-2 px-4 py-2">{data.test}</td>
                                             <td className="border-2 px-4 py-2">
-                                                <div className="flex justify-around" onClick={handleDownloadReport}>
-                                                    <p>{data.report}</p>
-                                                    <div className="">
-                                                        <FiDownload
-                                                            className="cursor-pointer"
-                                                            size={21}
-                                                            color="blue"
-                                                        />
-                                                    </div>
-                                                </div>
+                                                {data.file_name ?
+                                                    <div className="flex justify-around cursor-pointer" onClick={(e) => handleDownloadReport(data.id, data.file_name)}>
+                                                        <p>{data.file_name}</p>
+                                                        <div className="">
+                                                            <FiDownload
+                                                                className="cursor-pointer"
+                                                                size={21}
+                                                                color="blue"
+                                                            />
+                                                        </div>
+                                                    </div> : null}
                                             </td>
                                             <td className="border-2 px-4 py-2">{data.diagnosis}</td>
                                             {role === "doctor" && (
