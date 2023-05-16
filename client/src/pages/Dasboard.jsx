@@ -1,10 +1,19 @@
 import React from "react";
 import Cookies from "js-cookie";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Dashboard.css";
 
 const Dasboard = () => {
+       const navigate = useNavigate();
        const role = Cookies.get("role");
+
+       const handleLogout = () => {
+              Cookies.remove("token");
+              Cookies.remove("role");
+              Cookies.remove("id");
+              Cookies.remove("email");
+              navigate("/login");
+       };
 
        if (role === "patient") {
               return (
@@ -48,8 +57,8 @@ const Dasboard = () => {
                                                  </Link>
                                           </li>
                                           {/* <br /> */}
-                                          <li className="sidebar-item">
-                                                 <Link to="/">
+                                          <li className="sidebar-item" onClick={handleLogout}>
+                                                 <Link to="/login">
                                                         <i className="fas fa-sign-out-alt"></i>&nbsp;
                                                         <span>Logout</span>
                                                  </Link>
@@ -95,9 +104,8 @@ const Dasboard = () => {
                                           </li>
 
 
-
-                                          <li className="sidebar-item">
-                                                 <Link to="/">
+                                          <li className="sidebar-item" onClick={handleLogout}>
+                                                 <Link to="/login">
                                                         <i className="fas fa-sign-out-alt"></i>&nbsp;
                                                         <span>Logout</span>
                                                  </Link>
@@ -128,8 +136,8 @@ const Dasboard = () => {
                                                  </Link>
                                           </li>
 
-                                          <li className="sidebar-item">
-                                                 <Link to="/">
+                                          <li className="sidebar-item" onClick={handleLogout}>
+                                                 <Link to="/login">
                                                         <i className="fas fa-sign-out-alt"></i>&nbsp;
                                                         <span>Logout</span>
                                                  </Link>
@@ -166,9 +174,8 @@ const Dasboard = () => {
                                                         <span>Lab Assistants</span>
                                                  </Link>
                                           </li>
-
-                                          <li className="sidebar-item">
-                                                 <Link to="/">
+                                          <li className="sidebar-item" onClick={handleLogout}>
+                                                 <Link to="/login">
                                                         <i className="fas fa-sign-out-alt"></i>&nbsp;
                                                         <span>Logout</span>
                                                  </Link>
