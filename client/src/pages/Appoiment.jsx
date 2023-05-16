@@ -110,30 +110,30 @@ const Appoiment = () => {
               <option value="">Select a doctor</option>
               {department === "cardiology" && (
                 <>
-                  <option value="d10sd1">Dr. John</option>
-                  <option value="d10sd1">Dr. Mary</option>
-                  <option value="d10sd1">Dr. David</option>
+                  <option value="d101">Dr. John</option>
+                  <option value="d101">Dr. Mary</option>
+                  <option value="d101">Dr. David</option>
                 </>
               )}
               {department === "orthopedics" && (
                 <>
-                  <option value="d10sd1">Dr. Tom</option>
-                  <option value="d10sd1">Dr. Lisa</option>
-                  <option value="d10sd1">Dr. Susan</option>
+                  <option value="d101">Dr. Tom</option>
+                  <option value="d101">Dr. Lisa</option>
+                  <option value="d101">Dr. Susan</option>
                 </>
               )}
               {department === "pediatrics" && (
                 <>
-                  <option value="d10sd1">Dr. Sarah</option>
-                  <option value="d10sd1">Dr. Jessica</option>
-                  <option value="d10sd1">Dr. Amy</option>
+                  <option value="d101">Dr. Sarah</option>
+                  <option value="d101">Dr. Jessica</option>
+                  <option value="d101">Dr. Amy</option>
                 </>
               )}
               {department === "dermatology" && (
                 <>
-                  <option value="d10sd1">Dr. Michael</option>
-                  <option value="d10sd1">Dr. Karen</option>
-                  <option value="d10sd1">Dr. Laura</option>
+                  <option value="d101">Dr. Michael</option>
+                  <option value="d101">Dr. Karen</option>
+                  <option value="d101">Dr. Laura</option>
                 </>
               )}
             </select>
