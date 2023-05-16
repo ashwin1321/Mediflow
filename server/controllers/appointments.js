@@ -87,6 +87,7 @@ exports.addAppointment = async (req, res) => {
 
             mailTransporter.sendMail(mailDetails, function (err, data) {
                 if (err) {
+                    console.log(err)
                     res.json({ error: "Error  sending email" });
                 } else {
                     res.status(200).json({ booked: "Appointment booked" });
