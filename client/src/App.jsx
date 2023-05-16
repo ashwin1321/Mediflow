@@ -41,7 +41,10 @@ function App() {
 
                 <Route path='/dashboard/viewAppointment' element={<ViewAppointment />} />
 
-                <Route path="*" element={<h1>404 Not Found</h1>} />
+                <Route path="*" element={<div className="text-center text-3xl mt-[20%] text-red-800">
+                    <h1>Not Available!</h1>
+                    <h1>Please go back!</h1>
+                </div>} />
 
                 <Route path="/dashboard/diagnosis" element={<IsDoctor>< Diagnosis /></IsDoctor>} />
                 <Route path="/dashboard/report" element={<IsDoctor>< ViewReport /></IsDoctor>} />
