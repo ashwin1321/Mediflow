@@ -1,6 +1,5 @@
 import Layout from "../pages/Layout";
 import React, { useState } from "react";
-import { bookImg } from "../assets/Homepage";
 import "../styles/Appointment.css";
 import Cookies from "js-cookie";
 import axios from "axios";
@@ -36,20 +35,26 @@ const Appoiment = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios
-      .post("http://localhost:5000/appointments/add-appointment", data)
-      .then((res) => {
-        console.log(res.data)
-        if (res.data.booked) {
-          alert("Appointment booked successfully");
-          navigate("/dashboard");
-        } else {
-          alert(res.data.error);
-        }
-      })
-      .catch((err) => {
-        alert("Something went wrong");
-      });
+    if (data.paymentMethod === "cash") {
+      axios
+        .post("http://localhost:5000/appointments/add-appointment", data)
+        .then((res) => {
+          console.log(res.data)
+          if (res.data.booked) {
+            alert("Appointment booked successfully");
+            navigate("/dashboard");
+          } else {
+            alert(res.data.error);
+          }
+        })
+        .catch((err) => {
+          alert("Something went wrong");
+        });
+    }
+    else {
+      navigate("/payment", { state: data });
+    }
+
   };
   return (
     <Layout>
@@ -164,7 +169,6 @@ const Appoiment = () => {
               value={paymentMethod}
               onChange={(event) => setPaymentMethod(event.target.value)}
             >
-              <option value="esewa">eSewa</option>
               <option value="cash">Cash</option>
               <option value="khalti">Khalti</option>
             </select>
