@@ -4,6 +4,8 @@ import "../styles/Appointment.css";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import KhaltiCheckout from "khalti-checkout-web";
+import config from "../components/khalti/KhaltiConfig";
 
 const Appoiment = () => {
   const navigate = useNavigate();
@@ -17,6 +19,7 @@ const Appoiment = () => {
   // const [paymentStatus, setPaymentStatus] = useState("");
   const pid = Cookies.get("id");
   const email = Cookies.get("email");
+  let checkout = new KhaltiCheckout(config);
 
   //  ============= get doctors name and show in the options of the select tag ===============
 
@@ -52,9 +55,9 @@ const Appoiment = () => {
         });
     }
     else {
-      navigate("/payment", { state: data });
-    }
-
+      sessionStorage.setItem("data", JSON.stringify(data));
+      checkout.show({ amount: 1000 });
+    };
   };
   return (
     <Layout>
