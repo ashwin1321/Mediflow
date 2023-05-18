@@ -110,30 +110,30 @@ const Appoiment = () => {
               <option value="">Select a doctor</option>
               {department === "cardiology" && (
                 <>
-                  <option value="d101">Dr. John</option>
-                  <option value="d101">Dr. Mary</option>
-                  <option value="d101">Dr. David</option>
+                  <option value="D101">Dr. John</option>
+                  <option value="D101">Dr. Mary</option>
+                  <option value="D101">Dr. David</option>
                 </>
               )}
               {department === "orthopedics" && (
                 <>
-                  <option value="d101">Dr. Tom</option>
-                  <option value="d101">Dr. Lisa</option>
-                  <option value="d101">Dr. Susan</option>
+                  <option value="D101">Dr. Tom</option>
+                  <option value="D101">Dr. Lisa</option>
+                  <option value="D101">Dr. Susan</option>
                 </>
               )}
               {department === "pediatrics" && (
                 <>
-                  <option value="d101">Dr. Sarah</option>
-                  <option value="d101">Dr. Jessica</option>
-                  <option value="d101">Dr. Amy</option>
+                  <option value="D101">Dr. Sarah</option>
+                  <option value="D101">Dr. Jessica</option>
+                  <option value="D101">Dr. Amy</option>
                 </>
               )}
               {department === "dermatology" && (
                 <>
-                  <option value="d101">Dr. Michael</option>
-                  <option value="d101">Dr. Karen</option>
-                  <option value="d101">Dr. Laura</option>
+                  <option value="D101">Dr. Michael</option>
+                  <option value="D101">Dr. Karen</option>
+                  <option value="D101">Dr. Laura</option>
                 </>
               )}
             </select>
@@ -165,8 +165,8 @@ const Appoiment = () => {
               onChange={(event) => setPaymentMethod(event.target.value)}
             >
               <option value="esewa">eSewa</option>
-              <option value="creditCard">Cash</option>
-              <option value="debitCard">Khalti</option>
+              <option value="cash">Cash</option>
+              <option value="khalti">Khalti</option>
             </select>
           </div>
 
