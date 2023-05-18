@@ -61,7 +61,7 @@ exports.addAppointment = async (req, res) => {
     try {
 
         const { pid, did, date, time, remarks, phonenumber, email } = req.body;
-        console.log(req.body)
+        console.log("data:", req.body)
 
         const query = `insert into appointments(pid, did, date, time, remarks, phonenumber) values($1, $2, $3, $4, $5, $6)`;
         const values = [pid, did, date, time, remarks, phonenumber];
