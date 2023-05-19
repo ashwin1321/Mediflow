@@ -5,6 +5,8 @@ import axios from 'axios';
 const dataa = sessionStorage.getItem('data');
 console.log(dataa)
 
+const khaltiResCode = 0;
+
 let config = {
     // replace this key with yours
     "publicKey": myKey.publicTestKey,
@@ -38,7 +40,7 @@ let config = {
                 body: JSON.stringify(data),
                 headers: config.headers
             })
-            if (response.status === 0) {
+            if (response.status === khaltiResCode) {
 
                 // alert("Payment Successful")
                 const dataa = sessionStorage.getItem('data');
