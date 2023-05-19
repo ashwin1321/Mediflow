@@ -41,6 +41,8 @@ let config = {
             if (response.status === 0) {
 
                 // alert("Payment Successful")
+                const dataa = sessionStorage.getItem('data');
+                // console.log(dataa)
                 console.log(dataa)
                 const parsedData = JSON.parse(dataa);
                 axios

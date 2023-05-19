@@ -35,7 +35,7 @@ const Appoiment = () => {
     paymentMethod,
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (data.paymentMethod === "cash") {
@@ -55,7 +55,7 @@ const Appoiment = () => {
         });
     }
     else {
-      sessionStorage.setItem("data", JSON.stringify(data));
+      await sessionStorage.setItem("data", JSON.stringify(data));
       checkout.show({ amount: 1000 });
     };
   };
